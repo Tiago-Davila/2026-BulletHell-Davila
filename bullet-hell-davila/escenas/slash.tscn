@@ -1,16 +1,44 @@
 [gd_scene format=3 uid="uid://rba84fw13cug"]
 
-[ext_resource type="Texture2D" uid="uid://cf3mxcmino6hp" path="res://assets/texturas/slashHollow.png" id="1_bf50k"]
-[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://slash.gd" id="1_tocf0"]
+[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://scripts/slash.gd" id="1_tocf0"]
+[ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="2_cachh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu843"]
+atlas = ExtResource("2_cachh")
+region = Rect2(211, 142, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4nts"]
+atlas = ExtResource("2_cachh")
+region = Rect2(174, 142, 37, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn22d"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_eu843")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_r4nts")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 2.0
+}]
 
 [node name="Slash" type="Node2D" unique_id=1230658698]
 script = ExtResource("1_tocf0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1405335742]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_bf50k")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1161458349]
+position = Vector2(-0.9999981, -7)
+scale = Vector2(1.2630684, 1.6102298)
+sprite_frames = SubResource("SpriteFrames_fn22d")
+animation = &"slash"
+frame = 1
+frame_progress = 1.0
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Sprite2D" unique_id=1525946105]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="AnimatedSprite2D" unique_id=1525946105]
+position = Vector2(12.554724, 9.13811)
 rect = Rect2(-190, -226.66666, 376.66666, 400)
 
-[connection signal="screen_exited" from="Sprite2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_exited" from="AnimatedSprite2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
