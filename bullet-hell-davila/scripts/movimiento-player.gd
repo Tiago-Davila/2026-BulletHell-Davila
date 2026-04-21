@@ -9,9 +9,12 @@ var dash_duracion: float = 0.1
 var dash_timer: float = 0.0
 var dash_cooldown: float = 1.0
 var dash_cooldown_timer: float = 0.0
+var vida: int = 50
+
 var atacando: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -64,3 +67,15 @@ func _physics_process(delta: float) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "atacando":
 		atacando = false
+		
+func _input (event:InputEvent) -> void:
+	if(event.is_action_pressed("slash")):
+		var bodies: Array = $areaAtaque.get_overlapping_bodies()
+		for body in bodies:
+			if(body.is_in_group("enemigos")):
+				body.tomar_daño(10)
+				
+				
+func tomar_daño(daño: int) -> void:
+	vida -= daño
+	if vida <= 0:queue_free()	

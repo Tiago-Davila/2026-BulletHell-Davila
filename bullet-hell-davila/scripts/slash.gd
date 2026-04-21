@@ -1,7 +1,7 @@
 extends Node2D
 
 const velocidad_slash: int = 300
-var distancia_maxima: float = 700.0
+var distancia_maxima: float = 600.0
 var posicion_inicial: Vector2
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
