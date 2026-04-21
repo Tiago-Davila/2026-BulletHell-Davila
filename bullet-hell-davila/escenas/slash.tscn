@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://rba84fw13cug"]
+
+[ext_resource type="Texture2D" uid="uid://cf3mxcmino6hp" path="res://assets/texturas/slashHollow.png" id="1_bf50k"]
+[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://slash.gd" id="1_tocf0"]
+
+[node name="Slash" type="Node2D" unique_id=1230658698]
+script = ExtResource("1_tocf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1405335742]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_bf50k")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Sprite2D" unique_id=1525946105]
+rect = Rect2(-190, -226.66666, 376.66666, 400)
+
+[connection signal="screen_exited" from="Sprite2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
