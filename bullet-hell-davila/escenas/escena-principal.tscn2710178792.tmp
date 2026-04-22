@@ -233,35 +233,35 @@ shape = SubResource("RectangleShape2D_kr5r0")
 scale = Vector2(1.9894212, 1.3644222)
 zoom = Vector2(2, 2)
 
-[node name="GUI" type="CanvasLayer" parent="player" unique_id=424030951]
-
-[node name="corazon1" type="Sprite2D" parent="player/GUI" unique_id=92466892]
-position = Vector2(84.79178, 73.4075)
-scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_r4nts")
-
-[node name="corazon2" type="Sprite2D" parent="player/GUI" unique_id=165388257]
-position = Vector2(115.791794, 73.40752)
-scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_r4nts")
-
-[node name="corazon3" type="Sprite2D" parent="player/GUI" unique_id=175986189]
-position = Vector2(146.79176, 73.40752)
-scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_r4nts")
-
-[node name="corazon4" type="Sprite2D" parent="player/GUI" unique_id=1813847085]
-position = Vector2(179.79176, 73.40752)
-scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_r4nts")
-
-[node name="corazon5" type="Sprite2D" parent="player/GUI" unique_id=1589746886]
-position = Vector2(212.7918, 73.40752)
-scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_r4nts")
-
 [node name="Node2D" parent="." unique_id=511604442 instance=ExtResource("6_2ct6m")]
 position = Vector2(601, 244)
 scale = Vector2(0.15999877, 0.35999995)
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=424030951]
+
+[node name="corazon1" type="Sprite2D" parent="GUI" unique_id=92466892]
+position = Vector2(105.79178, 102.4075)
+scale = Vector2(0.13521354, 0.12891832)
+texture = ExtResource("7_r4nts")
+
+[node name="corazon2" type="Sprite2D" parent="GUI" unique_id=165388257]
+position = Vector2(136.7918, 102.40752)
+scale = Vector2(0.13521354, 0.12891832)
+texture = ExtResource("7_r4nts")
+
+[node name="corazon3" type="Sprite2D" parent="GUI" unique_id=175986189]
+position = Vector2(167.79176, 102.40752)
+scale = Vector2(0.13521354, 0.12891832)
+texture = ExtResource("7_r4nts")
+
+[node name="corazon4" type="Sprite2D" parent="GUI" unique_id=1813847085]
+position = Vector2(200.79176, 102.40752)
+scale = Vector2(0.13521354, 0.12891832)
+texture = ExtResource("7_r4nts")
+
+[node name="corazon5" type="Sprite2D" parent="GUI" unique_id=1589746886]
+position = Vector2(233.7918, 102.40752)
+scale = Vector2(0.13521354, 0.12891832)
+texture = ExtResource("7_r4nts")
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]

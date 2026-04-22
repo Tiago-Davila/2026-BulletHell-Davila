@@ -2,7 +2,7 @@ extends Area2D
 
 
 var velocidad: Vector2 = Vector2.ZERO
-var daño: int = 10
+var daño: int = 1
  
 func _physics_process(delta: float) -> void:
 	position += velocidad * delta

@@ -9,11 +9,13 @@ var dash_duracion: float = 0.1
 var dash_timer: float = 0.0
 var dash_cooldown: float = 1.0
 var dash_cooldown_timer: float = 0.0
-var vida: int = 50
+var vida: int = 5
+
 
 var atacando: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var corazones = [$GUI/corazon1, $GUI/corazon2, $GUI/corazon3, $GUI/corazon4, $GUI/corazon5]
 
 
 func _process(_delta: float) -> void:
@@ -78,4 +80,10 @@ func _input (event:InputEvent) -> void:
 				
 func tomar_daño(daño: int) -> void:
 	vida -= daño
-	if vida <= 0:queue_free()	
+	actualizar_salud()
+	if vida <= 0:queue_free()
+	
+	
+func actualizar_salud() -> void:
+	for i in range(corazones.size()):
+		corazones[i].visible = i < vida
