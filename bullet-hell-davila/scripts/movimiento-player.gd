@@ -10,6 +10,7 @@ var dash_timer: float = 0.0
 var dash_cooldown: float = 1.0
 var dash_cooldown_timer: float = 0.0
 var vida: int = 5
+var municion: int = 0
 
 
 var atacando: bool = false
@@ -87,3 +88,7 @@ func tomar_daño(daño: int) -> void:
 func actualizar_salud() -> void:
 	for i in range(corazones.size()):
 		corazones[i].visible = i < vida
+
+
+func recargar(cantidad: int) -> void:
+	municion += cantidad

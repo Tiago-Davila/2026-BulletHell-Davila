@@ -1,6 +1,6 @@
 extends Node2D
 
-const Slash = preload("res://escenas/slash.tscn")
+const disparo = preload("res://escenas/disparo.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,8 +15,12 @@ func _process(delta: float) -> void:
 		scale.y = -1
 	else:
 		scale.y = 1
-	if Input.is_action_just_pressed("slash"):
-		var slash_instance = Slash.instantiate()
+	if Input.is_action_just_pressed("disparo"):
+		var player = get_parent()
+		if player.municion <= 0:
+			return
+		player.municion -=1
+		var slash_instance = disparo.instantiate()
 		get_tree().root.add_child(slash_instance)
 		slash_instance.global_position = global_position
 		slash_instance.rotation = rotation

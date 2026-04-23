@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqetqsmcq2sva"]
+
+[ext_resource type="Script" uid="uid://d3etdrajhu0aa" path="res://scripts/spawn_enemigos.gd" id="1_mvqw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0kiq"]
+
+[node name="SpawnEnemigos" type="Area2D" unique_id=992641596]
+script = ExtResource("1_mvqw8")
+
+[node name="spawn-timer" type="Timer" parent="." unique_id=412437240]
+wait_time = 2.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1495580164]
+shape = SubResource("RectangleShape2D_p0kiq")
+
+[connection signal="timeout" from="spawn-timer" to="." method="_on_spawntimer_timeout"]

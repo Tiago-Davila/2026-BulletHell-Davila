@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://rba84fw13cug"]
 
-[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://scripts/slash.gd" id="1_tocf0"]
+[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://scripts/disparo.gd" id="1_tocf0"]
 [ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="2_cachh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgseb"]
+atlas = ExtResource("2_cachh")
+region = Rect2(177, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnb17"]
+atlas = ExtResource("2_cachh")
+region = Rect2(208, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6un70"]
+atlas = ExtResource("2_cachh")
+region = Rect2(239, 384, 31, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu843"]
 atlas = ExtResource("2_cachh")
@@ -14,6 +26,20 @@ region = Rect2(174, 142, 37, 39)
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn22d"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgseb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnb17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6un70")
+}],
+"loop": false,
+"name": &"disparo",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_eu843")
 }, {
@@ -25,6 +51,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cachh"]
+size = Vector2(41, 40)
+
 [node name="Slash" type="Node2D" unique_id=1230658698]
 script = ExtResource("1_tocf0")
 
@@ -32,13 +61,18 @@ script = ExtResource("1_tocf0")
 position = Vector2(-0.9999981, -7)
 scale = Vector2(1.2630684, 1.6102298)
 sprite_frames = SubResource("SpriteFrames_fn22d")
-animation = &"slash"
-frame = 1
-frame_progress = 1.0
+animation = &"disparo"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="AnimatedSprite2D" unique_id=1525946105]
 position = Vector2(12.554724, 9.13811)
 rect = Rect2(-190, -226.66666, 376.66666, 400)
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1151767278]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=823491575]
+position = Vector2(-1.5, -3)
+shape = SubResource("RectangleShape2D_cachh")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="screen_exited" from="AnimatedSprite2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

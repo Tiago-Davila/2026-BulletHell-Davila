@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ct558mtiqyo7x"]
+
+[ext_resource type="Script" uid="uid://bc6xa3h476p3o" path="res://scripts/disparo.gd" id="1_bo8mp"]
+[ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="1_fvydf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgseb"]
+atlas = ExtResource("1_fvydf")
+region = Rect2(177, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnb17"]
+atlas = ExtResource("1_fvydf")
+region = Rect2(208, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6un70"]
+atlas = ExtResource("1_fvydf")
+region = Rect2(239, 384, 31, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvydf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgseb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnb17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6un70")
+}],
+"loop": false,
+"name": &"disparo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loi4p"]
+size = Vector2(30, 22)
+
+[node name="disparo" type="Area2D" unique_id=1477620488]
+light_mask = 2
+script = ExtResource("1_bo8mp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1857709327]
+position = Vector2(-0.9999981, -7)
+scale = Vector2(1.2630684, 1.6102298)
+sprite_frames = SubResource("SpriteFrames_fvydf")
+animation = &"disparo"
+frame = 2
+frame_progress = 1.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="AnimatedSprite2D" unique_id=2133226377]
+position = Vector2(12.554724, 9.13811)
+rect = Rect2(-190, -226.66666, 376.66666, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=941442356]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_loi4p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

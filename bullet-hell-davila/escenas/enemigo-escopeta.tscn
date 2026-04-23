@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c2dgicv7pdamg"]
+
+[ext_resource type="Script" uid="uid://itfrrjnrg687" path="res://scripts/enemigo_escopeta.gd" id="1_b0rc0"]
+[ext_resource type="PackedScene" uid="uid://cbmafl30ifks7" path="res://escenas/bala_enemigo_basico.tscn" id="2_cicmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cicmq"]
+size = Vector2(114, 99)
+
+[node name="EnemigoEscopeta" type="Node2D" unique_id=457034630]
+
+[node name="enemigo-escopeta" type="CharacterBody2D" parent="." unique_id=206704678 groups=["enemigos"]]
+position = Vector2(-7, -19)
+scale = Vector2(0.16000247, 0.4399988)
+script = ExtResource("1_b0rc0")
+bala_enemigo = ExtResource("2_cicmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-escopeta" unique_id=2025500986]
+position = Vector2(47, 39.49994)
+shape = SubResource("RectangleShape2D_cicmq")
+
+[node name="ColorRect" type="ColorRect" parent="enemigo-escopeta" unique_id=1163241546 groups=["enemigos"]]
+offset_left = -10.000244
+offset_top = -10.0
+offset_right = 103.999756
+offset_bottom = 91.0
+
+[node name="canones" type="Node2D" parent="enemigo-escopeta" unique_id=1585954511]
+position = Vector2(99.99846, 43.181934)
+
+[node name="centro" type="Marker2D" parent="enemigo-escopeta/canones" unique_id=77389331]
+
+[node name="izquierda" type="Marker2D" parent="enemigo-escopeta/canones" unique_id=1801861604]
+rotation = -0.2617994
+
+[node name="derecha" type="Marker2D" parent="enemigo-escopeta/canones" unique_id=1205155782]
+rotation = 0.2617994

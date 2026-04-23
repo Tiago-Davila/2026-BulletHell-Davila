@@ -8,18 +8,18 @@ size = Vector2(114, 99)
 
 [node name="Node2D" type="Node2D" unique_id=511604442]
 
-[node name="enemigo" type="CharacterBody2D" parent="." unique_id=1434010179 groups=["enemigos"]]
+[node name="enemigo-basico" type="CharacterBody2D" parent="." unique_id=1434010179 groups=["enemigos"]]
 position = Vector2(576, 249)
 scale = Vector2(0.16000247, 0.4399988)
 script = ExtResource("1_uhebs")
-bala_enemigo_basico = ExtResource("2_743j8")
+bala_enemigo = ExtResource("2_743j8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo" unique_id=931933408]
-position = Vector2(47, 39.49994)
-shape = SubResource("RectangleShape2D_hpq8b")
-
-[node name="ColorRect" type="ColorRect" parent="enemigo" unique_id=1396254353 groups=["enemigos"]]
+[node name="ColorRect" type="ColorRect" parent="enemigo-basico" unique_id=1396254353 groups=["enemigos"]]
 offset_left = -10.000244
 offset_top = -10.0
 offset_right = 103.999756
 offset_bottom = 91.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-basico" unique_id=931933408]
+position = Vector2(47, 39.499878)
+shape = SubResource("RectangleShape2D_hpq8b")

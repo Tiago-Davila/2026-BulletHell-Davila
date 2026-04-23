@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="2_kr5r0"]
 [ext_resource type="PackedScene" uid="uid://bxbvk6b3u4r2p" path="res://escenas/espada.tscn" id="3_kr5r0"]
 [ext_resource type="Texture2D" uid="uid://cmw3o6rx4m7gg" path="res://textures/Dark_Bricks.png" id="5_2ct6m"]
-[ext_resource type="PackedScene" uid="uid://d3ao8t3y8sfc8" path="res://escenas/enemigo.tscn" id="6_2ct6m"]
+[ext_resource type="PackedScene" uid="uid://d3ao8t3y8sfc8" path="res://escenas/enemigo-basico.tscn" id="6_2ct6m"]
 [ext_resource type="Texture2D" uid="uid://cylqpc5q4erhe" path="res://textures/Dark_Bricks_Floor.png" id="6_r4nts"]
 [ext_resource type="Texture2D" uid="uid://cjhhsh1pv0ktt" path="res://textures/vida-corazon.png" id="7_r4nts"]
+[ext_resource type="PackedScene" uid="uid://cxv7r5untis85" path="res://escenas/municion.tscn" id="8_eu843"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ct6m"]
 
@@ -61,6 +62,18 @@ region = Rect2(66, 286, 33, 35)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ct6m"]
 atlas = ExtResource("2_kr5r0")
 region = Rect2(99, 286, 33, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgseb"]
+atlas = ExtResource("2_kr5r0")
+region = Rect2(177, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnb17"]
+atlas = ExtResource("2_kr5r0")
+region = Rect2(208, 384, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6un70"]
+atlas = ExtResource("2_kr5r0")
+region = Rect2(239, 384, 31, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxj54"]
 atlas = ExtResource("2_kr5r0")
@@ -141,6 +154,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tgseb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnb17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6un70")
+}],
+"loop": false,
+"name": &"disparo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bxj54")
 }, {
 "duration": 1.0,
@@ -208,16 +235,14 @@ script = ExtResource("1_ts76q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1376161827]
 position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_mvgvp")
-animation = &"atacando"
-frame = 2
-frame_progress = 1.0
+animation = &"disparo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=960809490]
 position = Vector2(-1.5, -1)
 scale = Vector2(1.76, 1.9901)
 shape = SubResource("RectangleShape2D_mvgvp")
 
-[node name="Espada" parent="player" unique_id=746597162 instance=ExtResource("3_kr5r0")]
+[node name="arma" parent="player" unique_id=746597162 instance=ExtResource("3_kr5r0")]
 position = Vector2(5, 10)
 rotation = 2.0943952
 scale = Vector2(0.5, 0.5)
@@ -260,8 +285,29 @@ position = Vector2(212.7918, 73.40752)
 scale = Vector2(0.13521354, 0.12891832)
 texture = ExtResource("7_r4nts")
 
+[node name="ZonasDeSpawn" type="Node2D" parent="." unique_id=1040414313]
+position = Vector2(-98, -114)
+
+[node name="Marker2D" type="Marker2D" parent="ZonasDeSpawn" unique_id=1200409153]
+position = Vector2(120, 519)
+
+[node name="Marker2D2" type="Marker2D" parent="ZonasDeSpawn" unique_id=1708145060]
+position = Vector2(493, 448)
+
+[node name="Marker2D4" type="Marker2D" parent="ZonasDeSpawn" unique_id=68418412]
+position = Vector2(915, 446)
+
+[node name="Marker2D3" type="Marker2D" parent="ZonasDeSpawn" unique_id=1596513610]
+position = Vector2(934, 156)
+
+[node name="Marker2D5" type="Marker2D" parent="ZonasDeSpawn" unique_id=1499186408]
+position = Vector2(160, 132)
+
 [node name="Node2D" parent="." unique_id=511604442 instance=ExtResource("6_2ct6m")]
-position = Vector2(601, 244)
-scale = Vector2(0.15999877, 0.35999995)
+visibility_layer = 2
+
+[node name="municionm" parent="." unique_id=1519985527 instance=ExtResource("8_eu843")]
+position = Vector2(470, 345)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]

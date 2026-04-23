@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxbvk6b3u4r2p"]
 
-[ext_resource type="Script" uid="uid://ca3wgkxaak0ak" path="res://scripts/espada.gd" id="1_m46pv"]
+[ext_resource type="Script" uid="uid://ca3wgkxaak0ak" path="res://scripts/arma.gd" id="1_m46pv"]
 [ext_resource type="Texture2D" uid="uid://bm5rhx2fvyq2e" path="res://icon.svg" id="2_m46pv"]
 
 [node name="Espada" type="Node2D" unique_id=746597162]
