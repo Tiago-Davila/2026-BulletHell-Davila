@@ -6,13 +6,14 @@
 radius = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgdxv"]
-bg_color = Color(0.6, 0, 0, 1)
+bg_color = Color(0.19215687, 0.36078432, 0, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [node name="bala" type="Area2D" unique_id=1479425759]
+scale = Vector2(3.6992235, 3.6044862)
 script = ExtResource("1_jgdxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446854140]

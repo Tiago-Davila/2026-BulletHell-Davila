@@ -2215,37 +2215,46 @@ position = Vector2(-98, -114)
 position = Vector2(447, 199)
 
 [node name="enemigoPotente" parent="ZonasDeSpawn/Node2D" unique_id=511604442 instance=ExtResource("9_dqqrh")]
-position = Vector2(-246, -198)
+position = Vector2(-17, -139)
+scale = Vector2(0.7555002, 0.75)
 
 [node name="enemigoInt" parent="ZonasDeSpawn/Node2D" unique_id=1551421238 instance=ExtResource("10_uksak")]
-position = Vector2(-554, -185)
+position = Vector2(-325, -126)
+scale = Vector2(0.7555002, 0.75)
 
 [node name="enemigoInt2" parent="ZonasDeSpawn/Node2D" unique_id=1500267796 instance=ExtResource("10_uksak")]
-position = Vector2(-734, 76)
+position = Vector2(-505, 135)
+scale = Vector2(0.7555002, 0.75)
 
 [node name="Node2D2" type="Node2D" parent="ZonasDeSpawn" unique_id=1807301989]
 position = Vector2(168, 488)
 
 [node name="enemigoPotente" parent="ZonasDeSpawn/Node2D2" unique_id=1857842789 instance=ExtResource("9_dqqrh")]
-position = Vector2(-581, -462)
+position = Vector2(-352, -403)
+scale = Vector2(0.7529449, 0.75)
 
 [node name="enemigoInt" parent="ZonasDeSpawn/Node2D2" unique_id=613339841 instance=ExtResource("10_uksak")]
-position = Vector2(-230, -298)
+position = Vector2(-1, -239)
+scale = Vector2(0.7529449, 0.75)
 
 [node name="enemigoInt2" parent="ZonasDeSpawn/Node2D2" unique_id=1272319519 instance=ExtResource("10_uksak")]
-position = Vector2(-423, -96)
+position = Vector2(-194, -37)
+scale = Vector2(0.7529449, 0.75)
 
 [node name="Node2D3" type="Node2D" parent="ZonasDeSpawn" unique_id=906675217]
 position = Vector2(940, 491)
 
 [node name="enemigoPotente" parent="ZonasDeSpawn/Node2D3" unique_id=1569777082 instance=ExtResource("9_dqqrh")]
-position = Vector2(-751, -259)
+position = Vector2(-522, -200)
+scale = Vector2(0.7396867, 0.75)
 
 [node name="enemigoInt" parent="ZonasDeSpawn/Node2D3" unique_id=238980625 instance=ExtResource("10_uksak")]
-position = Vector2(-421, -315)
+position = Vector2(-192, -256)
+scale = Vector2(0.7396867, 0.75)
 
 [node name="enemigoInt2" parent="ZonasDeSpawn/Node2D3" unique_id=952940189 instance=ExtResource("10_uksak")]
-position = Vector2(-423, -96)
+position = Vector2(-194, -37)
+scale = Vector2(0.7396867, 0.75)
 
 [node name="balas" type="Node2D" parent="." unique_id=445529248]
 
