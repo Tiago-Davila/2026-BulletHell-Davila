@@ -8,6 +8,7 @@ var vida := 30
 var timer := 0.0
 
 @onready var canones = $canones 
+@onready var notificador = $VisibleOnScreenNotifier2D
 
 func _process(delta: float) -> void:
 	timer += delta
@@ -16,6 +17,8 @@ func _process(delta: float) -> void:
 		disparar()
 
 func disparar() -> void:
+	if not notificador.is_on_screen():
+		return
 	var jugador = get_tree().get_first_node_in_group("player")
 	if not jugador: return 
 	canones.look_at(jugador.global_position)
@@ -28,4 +31,5 @@ func disparar() -> void:
 
 func tomar_daño(daño: int) -> void:
 	vida -= daño
+	get_tree().current_scene.restar_enemigo()
 	if vida <= 0: queue_free()

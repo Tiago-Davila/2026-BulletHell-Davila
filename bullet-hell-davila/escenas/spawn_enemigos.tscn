@@ -1,14 +1,62 @@
 [gd_scene format=3 uid="uid://dqetqsmcq2sva"]
 
-[ext_resource type="Script" uid="uid://d3etdrajhu0aa" path="res://scripts/spawn_enemigos.gd" id="1_mvqw8"]
+[sub_resource type="GDScript" id="GDScript_ik2p3"]
+script/source = "extends Area2D
+
+@export var escuadron: Array[PackedScene]
+@export var contenedor_puntos: Node2D 
+@export var max_enemigos: int = 10 
+@export var escena_siguiente_nivel: PackedScene
+
+var enemigos_spawneados: int = 0
+var enemigos_vivos: int = 0
+
+func _on_spawntimer_timeout() -> void:
+	if enemigos_spawneados >= max_enemigos:
+		$\"spawn-timer\".stop()
+		return
+
+
+	var lista_puntos = contenedor_puntos.get_children()
+	
+	
+		
+	for escena in escuadron:
+		if enemigos_spawneados >= max_enemigos:
+			break
+			
+		var punto_elegido = lista_puntos.pick_random()
+
+		var instancia_enemigo = escena.instantiate()
+		get_tree().current_scene.add_child(instancia_enemigo)	
+		
+		instancia_enemigo.global_position = punto_elegido.global_position 
+		
+		enemigos_spawneados += 1
+		enemigos_vivos += 1
+		
+		instancia_enemigo.tree_exited.connect(_on_enemigo_muerto)
+
+
+func _on_enemigo_muerto() -> void:
+	enemigos_vivos -= 1
+	
+	if enemigos_spawneados >= max_enemigos and enemigos_vivos == 0:
+		pasar_de_nivel()
+
+
+func pasar_de_nivel() -> void:
+	if escena_siguiente_nivel:
+		get_tree().change_scene_to_packed(escena_siguiente_nivel)
+	
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0kiq"]
 
 [node name="SpawnEnemigos" type="Area2D" unique_id=992641596]
-script = ExtResource("1_mvqw8")
+script = SubResource("GDScript_ik2p3")
 
 [node name="spawn-timer" type="Timer" parent="." unique_id=412437240]
-wait_time = 2.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1495580164]

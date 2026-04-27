@@ -8,5 +8,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.recargar(cantidad)
-		queue_free()
+		if body.vida < body.vida_maxima:
+			body.curar(cantidad)
+			queue_free()

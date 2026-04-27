@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://6ccpjbmmcxf8"]
+
+[ext_resource type="Texture2D" uid="uid://gy3jifrpm3c5" path="res://textures/winged_mossbug.png" id="3_5st0t"]
+
+[sub_resource type="GDScript" id="GDScript_1qpr5"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpq8b"]
+size = Vector2(199.99695, 36.36374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqxec"]
+atlas = ExtResource("3_5st0t")
+region = Rect2(0, 0, 43, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofif3"]
+atlas = ExtResource("3_5st0t")
+region = Rect2(43, 0, 43, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpsmj"]
+atlas = ExtResource("3_5st0t")
+region = Rect2(86, 0, 43, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pkk"]
+atlas = ExtResource("3_5st0t")
+region = Rect2(129, 0, 43, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_it661"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqxec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofif3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpsmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pkk")
+}],
+"loop": true,
+"name": &"animacion_enemigo_potente",
+"speed": 7.5
+}]
+
+[node name="Node2D" type="Node2D" unique_id=511604442]
+
+[node name="enemigo-potente" type="CharacterBody2D" parent="." unique_id=1434010179 groups=["enemigos"]]
+position = Vector2(576, 249)
+scale = Vector2(0.16000247, 0.4399988)
+script = SubResource("GDScript_1qpr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-potente" unique_id=931933408]
+position = Vector2(56.249023, 29.545593)
+shape = SubResource("RectangleShape2D_hpq8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemigo-potente" unique_id=541330663]
+position = Vector2(49.999268, 29.545532)
+scale = Vector2(14.999768, 5.1985054)
+sprite_frames = SubResource("SpriteFrames_it661")
+animation = &"animacion_enemigo_potente"
+autoplay = "animacion_enemigo_potente"
+frame_progress = 0.60061353
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="enemigo-potente" unique_id=574620637]
+position = Vector2(81.24875, 27.2728)
+scale = Vector2(26.24961, 7.9412365)
+rect = Rect2(-11.904739, -11.770996, 22.619003, 24.16153)

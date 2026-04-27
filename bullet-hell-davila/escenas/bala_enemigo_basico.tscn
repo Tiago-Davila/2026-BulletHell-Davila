@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://bmjs4sqalky8" path="res://scripts/bala_enemigo_basico.gd" id="1_u3yiu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_osiu2"]
+radius = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3yiu"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="bala" type="Area2D" unique_id=1479425759]
 script = ExtResource("1_u3yiu")
@@ -10,11 +17,11 @@ script = ExtResource("1_u3yiu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446854140]
 shape = SubResource("CircleShape2D_osiu2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1334418706]
-offset_left = -9.0
-offset_top = -7.9999995
-offset_right = 31.0
-offset_bottom = 32.0
-scale = Vector2(0.45454547, 0.42307693)
+[node name="Panel" type="Panel" parent="." unique_id=435883992]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u3yiu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,6 +6,7 @@ extends CharacterBody2D
 var vida := 30
 var timer := 0.0
 @export var cooldown_enemigo : float= 2.0
+@onready var notificador = $VisibleOnScreenNotifier2D
 func _process(delta: float) -> void:
 	timer += delta
 	if timer >= cooldown_enemigo and bala_enemigo:
@@ -13,6 +14,7 @@ func _process(delta: float) -> void:
 		disparar()
 
 func disparar() -> void:
+	if not notificador.is_on_screen():return
 	var jugador = get_tree().get_first_node_in_group("player")
 	if not jugador: return 
 
@@ -24,4 +26,5 @@ func disparar() -> void:
 	
 func tomar_daño(daño: int) -> void:
 	vida -= daño
+	get_tree().current_scene.restar_enemigo()
 	if vida <= 0: queue_free()

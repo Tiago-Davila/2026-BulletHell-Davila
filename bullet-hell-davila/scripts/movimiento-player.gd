@@ -10,6 +10,7 @@ var dash_timer: float = 0.0
 var dash_cooldown: float = 1.0
 var dash_cooldown_timer: float = 0.0
 var vida: int = 5
+var vida_maxima: int = 5
 var municion: int = 0
 
 
@@ -17,13 +18,19 @@ var atacando: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var corazones = [$GUI/corazon1, $GUI/corazon2, $GUI/corazon3, $GUI/corazon4, $GUI/corazon5]
+@onready var balas = [$GUI/Bala, $GUI/Bala2, $GUI/Bala3, $GUI/Bala4, $GUI/Bala5]
 
-
+func _ready() -> void:
+	actualizar_municion()
+	actualizar_salud()
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
 		sprite.flip_h = true
+		$areaAtaque/CollisionShape2D.position.x = -abs($areaAtaque/CollisionShape2D.position.x)
 	else:
 		sprite.flip_h = false
+		$areaAtaque/CollisionShape2D.position.x = abs($areaAtaque/CollisionShape2D.position.x)
+		
 
 func _physics_process(delta: float) -> void:
 	if dasheando:
@@ -91,4 +98,15 @@ func actualizar_salud() -> void:
 
 
 func recargar(cantidad: int) -> void:
-	municion += cantidad
+	municion = clamp(municion + cantidad, 0,5) # me sirve para ponerle un tope de 5 municiones 
+	actualizar_municion()
+
+
+func curar(cantidad: int) -> void:
+	vida = clamp(vida + cantidad, 0,5) # me sirve para ponerle un tope de 5 municiones 
+	actualizar_salud()
+
+func actualizar_municion() -> void:
+	for i in range(balas.size()):
+		balas[i].visible = i < municion
+		

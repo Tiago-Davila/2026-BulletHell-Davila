@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 		if player.municion <= 0:
 			return
 		player.municion -=1
+		player.actualizar_municion()
 		var slash_instance = disparo.instantiate()
 		get_tree().root.add_child(slash_instance)
 		slash_instance.global_position = global_position

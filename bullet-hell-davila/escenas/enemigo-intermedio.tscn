@@ -2,13 +2,36 @@
 
 [ext_resource type="Script" uid="uid://d25lfdgxw562v" path="res://scripts/enemigo.gd" id="1_i2e60"]
 [ext_resource type="PackedScene" uid="uid://diyrpkk01b3wr" path="res://escenas/bala_enemigo_intermedio.tscn" id="2_i2e60"]
+[ext_resource type="Texture2D" uid="uid://dancw4q3xcymu" path="res://textures/tiktikpixel.png" id="3_ak3re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpq8b"]
-size = Vector2(114, 99)
+size = Vector2(75.66254, 40.11618)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ior0v"]
+atlas = ExtResource("3_ak3re")
+region = Rect2(0, 0, 14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swqpm"]
+atlas = ExtResource("3_ak3re")
+region = Rect2(14, 0, 14, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwwy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ior0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swqpm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=511604442]
 
-[node name="enemigo-intermedio" type="CharacterBody2D" parent="." unique_id=1434010179 groups=["enemigos"]]
+[node name="enemigo-intermedio" type="CharacterBody2D" parent="." unique_id=1434010179]
 position = Vector2(576, 249)
 scale = Vector2(0.16000247, 0.4399988)
 script = ExtResource("1_i2e60")
@@ -16,11 +39,18 @@ bala_enemigo = ExtResource("2_i2e60")
 cooldown_enemigo = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-intermedio" unique_id=931933408]
-position = Vector2(47, 39.49994)
+position = Vector2(5.4033203, 1.137207)
+rotation = -3.1415925
+scale = Vector2(2.170028, -1.3029968)
 shape = SubResource("RectangleShape2D_hpq8b")
 
-[node name="ColorRect" type="ColorRect" parent="enemigo-intermedio" unique_id=1396254353 groups=["enemigos"]]
-offset_left = -10.000244
-offset_top = -10.0
-offset_right = 103.999756
-offset_bottom = 91.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemigo-intermedio" unique_id=595742741]
+scale = Vector2(12.428588, 5.493691)
+sprite_frames = SubResource("SpriteFrames_fwwy4")
+autoplay = "default"
+frame_progress = 0.15443467
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="enemigo-intermedio" unique_id=1190755324]
+position = Vector2(31.24952, 4.5454655)
+scale = Vector2(15.749772, 3.6685026)
+rect = Rect2(-11.904739, -11.770996, 22.222198, 24.16153)

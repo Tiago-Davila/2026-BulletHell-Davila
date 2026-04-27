@@ -2,9 +2,32 @@
 
 [ext_resource type="Script" uid="uid://d25lfdgxw562v" path="res://scripts/enemigo.gd" id="1_uhebs"]
 [ext_resource type="PackedScene" uid="uid://cbmafl30ifks7" path="res://escenas/bala_enemigo_basico.tscn" id="2_743j8"]
+[ext_resource type="Texture2D" uid="uid://b66i4pq6xacgi" path="res://textures/vengeflypixel.png" id="3_xch3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpq8b"]
-size = Vector2(114, 99)
+size = Vector2(199.99695, 36.36374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og46m"]
+atlas = ExtResource("3_xch3v")
+region = Rect2(0, 0, 14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvd7s"]
+atlas = ExtResource("3_xch3v")
+region = Rect2(14, 0, 14, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_it661"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og46m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvd7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=511604442]
 
@@ -14,12 +37,18 @@ scale = Vector2(0.16000247, 0.4399988)
 script = ExtResource("1_uhebs")
 bala_enemigo = ExtResource("2_743j8")
 
-[node name="ColorRect" type="ColorRect" parent="enemigo-basico" unique_id=1396254353 groups=["enemigos"]]
-offset_left = -10.000244
-offset_top = -10.0
-offset_right = 103.999756
-offset_bottom = 91.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-basico" unique_id=931933408]
-position = Vector2(47, 39.499878)
+position = Vector2(56.249023, 29.545593)
 shape = SubResource("RectangleShape2D_hpq8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemigo-basico" unique_id=541330663]
+position = Vector2(49.999268, 29.545532)
+scale = Vector2(14.999768, 3.38033)
+sprite_frames = SubResource("SpriteFrames_it661")
+autoplay = "default"
+frame_progress = 0.37125832
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="enemigo-basico" unique_id=574620637]
+position = Vector2(68.74894, 27.2728)
+scale = Vector2(15.749772, 3.6685026)
+rect = Rect2(-11.904739, -11.770996, 22.222198, 24.16153)
