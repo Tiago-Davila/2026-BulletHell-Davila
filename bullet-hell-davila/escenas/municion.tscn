@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxv7r5untis85"]
 
-[ext_resource type="Script" uid="uid://cgrk7hacuihhb" path="res://municion.gd" id="1_0kh7v"]
+[ext_resource type="Script" uid="uid://cgrk7hacuihhb" path="res://scripts/municion.gd" id="1_0kh7v"]
 [ext_resource type="Texture2D" uid="uid://dcokc4y8ehvpe" path="res://textures/bala.png" id="2_beubs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7omgx"]

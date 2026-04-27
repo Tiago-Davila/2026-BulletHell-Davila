@@ -2,18 +2,22 @@
 
 [ext_resource type="Script" uid="uid://d25lfdgxw562v" path="res://scripts/enemigo.gd" id="1_i2e60"]
 [ext_resource type="PackedScene" uid="uid://diyrpkk01b3wr" path="res://escenas/bala_enemigo_intermedio.tscn" id="2_i2e60"]
-[ext_resource type="Texture2D" uid="uid://dancw4q3xcymu" path="res://textures/tiktikpixel.png" id="3_ak3re"]
+[ext_resource type="Texture2D" uid="uid://b5esg6ulq8umo" path="res://textures/mossbug.png" id="3_ak3re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpq8b"]
 size = Vector2(75.66254, 40.11618)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ior0v"]
 atlas = ExtResource("3_ak3re")
-region = Rect2(0, 0, 14, 10)
+region = Rect2(0, 0, 32, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_swqpm"]
 atlas = ExtResource("3_ak3re")
-region = Rect2(14, 0, 14, 10)
+region = Rect2(32, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwwy4"]
+atlas = ExtResource("3_ak3re")
+region = Rect2(64, 0, 32, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fwwy4"]
 animations = [{
@@ -23,6 +27,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swqpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwwy4")
 }],
 "loop": true,
 "name": &"default",
@@ -48,9 +55,9 @@ shape = SubResource("RectangleShape2D_hpq8b")
 scale = Vector2(12.428588, 5.493691)
 sprite_frames = SubResource("SpriteFrames_fwwy4")
 autoplay = "default"
-frame_progress = 0.15443467
+frame_progress = 0.5145473
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="enemigo-intermedio" unique_id=1190755324]
 position = Vector2(31.24952, 4.5454655)
 scale = Vector2(15.749772, 3.6685026)
-rect = Rect2(-11.904739, -11.770996, 22.222198, 24.16153)
+rect = Rect2(-13.49205, -17.966263, 24.60315, 34.693466)

@@ -103,7 +103,7 @@ func recargar(cantidad: int) -> void:
 
 
 func curar(cantidad: int) -> void:
-	vida = clamp(vida + cantidad, 0,5) # me sirve para ponerle un tope de 5 municiones 
+	vida = clamp(vida + cantidad, 0,5) # me sirve para ponerle un tope de 5 de vida 
 	actualizar_salud()
 
 func actualizar_municion() -> void:

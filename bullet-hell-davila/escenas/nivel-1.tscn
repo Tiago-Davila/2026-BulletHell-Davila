@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://vgdb1e6bex65" path="res://scripts/movimiento-player.gd" id="4_pfl1b"]
 [ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="5_5d2tm"]
 [ext_resource type="PackedScene" uid="uid://bxbvk6b3u4r2p" path="res://escenas/arma.tscn" id="6_mqo0p"]
+[ext_resource type="Texture2D" uid="uid://dxtpnipcpinar" path="res://textures/spritesv2.png" id="6_nits2"]
 [ext_resource type="Texture2D" uid="uid://cjhhsh1pv0ktt" path="res://textures/vida-corazon.png" id="7_h8uq4"]
 [ext_resource type="Texture2D" uid="uid://dcokc4y8ehvpe" path="res://textures/bala.png" id="8_wqedr"]
 [ext_resource type="PackedScene" uid="uid://d3ao8t3y8sfc8" path="res://escenas/enemigo-basico.tscn" id="9_n67tj"]
 [ext_resource type="PackedScene" uid="uid://c2dgicv7pdamg" path="res://escenas/enemigo-escopeta.tscn" id="10_eyciu"]
 [ext_resource type="PackedScene" uid="uid://cxv7r5untis85" path="res://escenas/municion.tscn" id="11_p476r"]
-[ext_resource type="PackedScene" uid="uid://d2t0otc4fysmd" path="res://corazon.tscn" id="12_ln8x5"]
+[ext_resource type="PackedScene" uid="uid://d2t0otc4fysmd" path="res://escenas/corazon.tscn" id="12_ln8x5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ct6m"]
 
@@ -46,6 +47,10 @@ region = Rect2(3, 142, 30, 39)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvokv"]
 atlas = ExtResource("5_5d2tm")
 region = Rect2(33, 142, 30, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tih77"]
+atlas = ExtResource("6_nits2")
+region = Rect2(39, 149, 30, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gun8t"]
 atlas = ExtResource("5_5d2tm")
@@ -133,11 +138,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_lvokv")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tih77")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gun8t")
 }],
 "loop": false,
 "name": &"atacando",
-"speed": 7.5
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -185,6 +193,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tih77")
+}],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -240,7 +256,7 @@ script = ExtResource("4_pfl1b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1376161827]
 position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_mvgvp")
-animation = &"idle"
+animation = &"atacando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=960809490]
 position = Vector2(-1.5, -1)
@@ -256,7 +272,7 @@ scale = Vector2(0.5, 0.5)
 light_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/areaAtaque" unique_id=1928931594]
-position = Vector2(-8, -1)
+position = Vector2(14, 0)
 shape = SubResource("RectangleShape2D_kr5r0")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1514477681]
@@ -325,13 +341,13 @@ position = Vector2(-98, -114)
 
 [node name="spawn1" type="Node2D" parent="ZonasDeSpawn" unique_id=2068970085]
 
-[node name="enemigo basico" parent="ZonasDeSpawn/spawn1" unique_id=511604442 instance=ExtResource("9_n67tj")]
+[node name="enemigo basico" parent="ZonasDeSpawn/spawn1" unique_id=511604442 groups=["enemigos"] instance=ExtResource("9_n67tj")]
 position = Vector2(-4, 56)
 
-[node name="enemigo basico2" parent="ZonasDeSpawn/spawn1" unique_id=1466807601 instance=ExtResource("9_n67tj")]
+[node name="enemigo basico2" parent="ZonasDeSpawn/spawn1" unique_id=1466807601 groups=["enemigos"] instance=ExtResource("9_n67tj")]
 position = Vector2(162, 41)
 
-[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn1" unique_id=457034630 instance=ExtResource("10_eyciu")]
+[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn1" unique_id=457034630 groups=["enemigos"] instance=ExtResource("10_eyciu")]
 position = Vector2(632, 237)
 
 [node name="spawn2" type="Node2D" parent="ZonasDeSpawn" unique_id=1382648168]
@@ -399,7 +415,7 @@ position = Vector2(327, 113)
 scale = Vector2(0.15276587, 0.16000003)
 
 [node name="Node2D2" parent="corazones" unique_id=1485499163 instance=ExtResource("12_ln8x5")]
-position = Vector2(124, 466)
+position = Vector2(105, 567)
 scale = Vector2(0.15276587, 0.16000003)
 
 [node name="Node2D3" parent="corazones" unique_id=532095440 instance=ExtResource("12_ln8x5")]
@@ -412,6 +428,18 @@ scale = Vector2(0.15276587, 0.16000003)
 
 [node name="Node2D5" parent="corazones" unique_id=901749585 instance=ExtResource("12_ln8x5")]
 position = Vector2(684, 341)
+scale = Vector2(0.15276587, 0.16000003)
+
+[node name="Node2D6" parent="corazones" unique_id=958748480 instance=ExtResource("12_ln8x5")]
+position = Vector2(316, 421.00003)
+scale = Vector2(0.15276587, 0.16000003)
+
+[node name="Node2D8" parent="corazones" unique_id=777861206 instance=ExtResource("12_ln8x5")]
+position = Vector2(465, 294)
+scale = Vector2(0.15276587, 0.16000003)
+
+[node name="Node2D7" parent="corazones" unique_id=1220148804 instance=ExtResource("12_ln8x5")]
+position = Vector2(788, 254.00003)
 scale = Vector2(0.15276587, 0.16000003)
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
