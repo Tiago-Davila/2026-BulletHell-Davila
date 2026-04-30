@@ -1,27 +1,43 @@
 [gd_scene format=3 uid="uid://cbmafl30ifks7"]
 
 [ext_resource type="Script" uid="uid://bmjs4sqalky8" path="res://scripts/bala_enemigo_basico.gd" id="1_u3yiu"]
+[ext_resource type="Texture2D" uid="uid://43r7rsiu0jj0" path="res://textures/enemys bullets/P1_Hyper_Bullet.png" id="2_35fih"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_osiu2"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l38wg"]
+size = Vector2(6, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3yiu"]
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hohl"]
+atlas = ExtResource("2_35fih")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8hem"]
+atlas = ExtResource("2_35fih")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyf01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hohl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8hem")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="bala" type="Area2D" unique_id=1479425759]
 script = ExtResource("1_u3yiu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446854140]
-shape = SubResource("CircleShape2D_osiu2")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_l38wg")
 
-[node name="Panel" type="Panel" parent="." unique_id=435883992]
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 6.0
-offset_bottom = 6.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u3yiu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2103550894]
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(0.28125, 0.40625)
+sprite_frames = SubResource("SpriteFrames_dyf01")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2dgicv7pdamg"]
 
 [ext_resource type="Script" uid="uid://itfrrjnrg687" path="res://scripts/enemigo_escopeta.gd" id="1_b0rc0"]
-[ext_resource type="PackedScene" uid="uid://cbmafl30ifks7" path="res://escenas/bala_enemigo_basico.tscn" id="2_cicmq"]
+[ext_resource type="PackedScene" uid="uid://cxtfchatw7t0y" path="res://escenas/bala_enemigo_escopeta.tscn" id="2_llfj6"]
 [ext_resource type="Texture2D" uid="uid://bysm4puq6cc1t" path="res://textures/primalaspidpixel.png" id="3_llfj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cicmq"]
@@ -35,7 +35,7 @@ animations = [{
 position = Vector2(-7, -19)
 scale = Vector2(0.16000247, 0.4399988)
 script = ExtResource("1_b0rc0")
-bala_enemigo = ExtResource("2_cicmq")
+bala_enemigo = ExtResource("2_llfj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo-escopeta" unique_id=2025500986]
 position = Vector2(48.12418, 37.04554)

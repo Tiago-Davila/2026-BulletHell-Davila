@@ -26,13 +26,13 @@ func _on_body_entered(body: Node) -> void:
 
 func explotar() -> void:
 	explotando = true
-	sprite.play("explosion")
+	
 	
 	var cuerpos = area_explosion.get_overlapping_bodies()
 	
 	for cuerpo in cuerpos:
 		if cuerpo.is_in_group("player") and cuerpo.has_method("tomar_daño"):
-			cuerpo.tomar_daño(20)
-			
+			cuerpo.tomar_daño(2)
+	sprite.play("explosion")
 	await sprite.animation_finished
 	queue_free()
