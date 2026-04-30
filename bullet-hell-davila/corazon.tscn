@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://beuimu73dhcc8"]
+
+[ext_resource type="Script" path="res://corazon.gd" id="1_mrjdn"]
+[ext_resource type="Texture2D" uid="uid://cdlwp0nhvlo0p" path="res://textures/corazon.png" id="2_lhmcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvra7"]
+size = Vector2(114, 99)
+
+[node name="Node2D" type="Area2D" unique_id=735186907]
+script = ExtResource("1_mrjdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1723791003]
+position = Vector2(-7.9999695, -5.9999847)
+scale = Vector2(0.5188679, 0.53404254)
+texture = ExtResource("2_lhmcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=987924660]
+position = Vector2(3, 3.5)
+shape = SubResource("RectangleShape2D_tvra7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

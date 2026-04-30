@@ -1,31 +1,23 @@
 [gd_scene format=3 uid="uid://diyrpkk01b3wr"]
 
 [ext_resource type="Script" uid="uid://bmjs4sqalky8" path="res://scripts/bala_enemigo_basico.gd" id="1_jgdxv"]
+[ext_resource type="Texture2D" uid="uid://cfojnur7ajyua" path="res://textures/bala-enemigo-intermedio.png" id="2_xgkrc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_osiu2"]
-radius = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgdxv"]
-bg_color = Color(0.19215687, 0.36078432, 0, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqm0"]
+size = Vector2(14.693098, 48.95613)
 
 [node name="bala" type="Area2D" unique_id=1479425759]
-scale = Vector2(3.6992235, 3.6044862)
+rotation = 1.5707964
+scale = Vector2(-0.3458589, 0.415902)
 script = ExtResource("1_jgdxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446854140]
-position = Vector2(10, 5)
-shape = SubResource("CircleShape2D_osiu2")
+position = Vector2(-0.1106185, 0.27743185)
+scale = Vector2(2.9955704, 1.3033991)
+shape = SubResource("RectangleShape2D_vjqm0")
 
-[node name="Panel" type="Panel" parent="." unique_id=831821910]
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 28.0
-offset_bottom = 23.0
-scale = Vector2(0.19927958, 0.19999966)
-theme_override_styles/panel = SubResource("StyleBoxFlat_jgdxv")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=634775249]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xgkrc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
