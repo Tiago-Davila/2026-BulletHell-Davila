@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://beuimu73dhcc8"]
 
-[ext_resource type="Script" path="res://corazon.gd" id="1_mrjdn"]
+[ext_resource type="Script" path="res://scripts/corazon.gd" id="1_mrjdn"]
 [ext_resource type="Texture2D" uid="uid://cdlwp0nhvlo0p" path="res://textures/corazon.png" id="2_lhmcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvra7"]

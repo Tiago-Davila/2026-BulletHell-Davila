@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dom3qjve0aih1"]
+
+[ext_resource type="Script" uid="uid://k2hq84p0d5k6" path="res://scripts/boss_final.gd" id="1_uxgnx"]
+[ext_resource type="PackedScene" uid="uid://dmj0k4apmi34w" path="res://escenas/bala-boss.tscn" id="2_8ecx8"]
+[ext_resource type="Texture2D" uid="uid://btysyc3rfiphh" path="res://textures/moss_mother_sting_attack.png" id="2_iamtf"]
+[ext_resource type="Texture2D" uid="uid://ckyguwex3dndj" path="res://textures/moss_mother_ceiling_smash_attack.png" id="3_8ecx8"]
+[ext_resource type="Texture2D" uid="uid://basoc2raqbro1" path="res://textures/moss_mother_pixel.png" id="4_w2qax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0434"]
+size = Vector2(145, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xa67"]
+atlas = ExtResource("2_iamtf")
+region = Rect2(0, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qml8"]
+atlas = ExtResource("2_iamtf")
+region = Rect2(50, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_022r4"]
+atlas = ExtResource("3_8ecx8")
+region = Rect2(0, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qha8a"]
+atlas = ExtResource("3_8ecx8")
+region = Rect2(50, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flbwj"]
+atlas = ExtResource("3_8ecx8")
+region = Rect2(100, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xi1q"]
+atlas = ExtResource("4_w2qax")
+region = Rect2(0, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_875ge"]
+atlas = ExtResource("4_w2qax")
+region = Rect2(50, 0, 50, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2dn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xa67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qml8")
+}],
+"loop": true,
+"name": &"atacando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_022r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qha8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flbwj")
+}],
+"loop": false,
+"name": &"cambiando_estado",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xi1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_875ge")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="BossFinal" type="Node2D" unique_id=429898445]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=669861585 groups=["enemigos"]]
+position = Vector2(570, 275)
+script = ExtResource("1_uxgnx")
+bullet_scene = ExtResource("2_8ecx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2014600519]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_c0434")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2143620703]
+position = Vector2(0, 1.0000038)
+scale = Vector2(2.6, 2.9)
+sprite_frames = SubResource("SpriteFrames_n2dn3")
+animation = &"idle"
+
+[node name="ShootTimer" type="Timer" parent="CharacterBody2D" unique_id=1364659987]
+wait_time = 3.0
+autostart = true
+
+[node name="Rotater" type="Node2D" parent="CharacterBody2D" unique_id=944323472]
+
+[connection signal="timeout" from="CharacterBody2D/ShootTimer" to="CharacterBody2D" method="_on_shoot_timer_timeout"]

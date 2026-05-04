@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var velocidad: int = 350
+var velocidad: int = 200
 var puede_dashear: bool = true
 var dasheando: bool = false
 var direccion_dash: Vector2 = Vector2.ZERO

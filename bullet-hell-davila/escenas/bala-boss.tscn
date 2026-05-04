@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dmj0k4apmi34w"]
+
+[ext_resource type="Script" uid="uid://8luhjcu0nn2s" path="res://scripts/bala-boss.gd" id="1_e1a18"]
+[ext_resource type="Texture2D" uid="uid://bjbiouf5rdrrp" path="res://textures/Player Bullets/P1 Bullet Stream.png" id="2_ld3yj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flolf"]
+atlas = ExtResource("2_ld3yj")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn1kh"]
+atlas = ExtResource("2_ld3yj")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uog6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flolf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn1kh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq6ko"]
+size = Vector2(8, 16)
+
+[node name="bala" type="Area2D" unique_id=324995232]
+script = ExtResource("1_e1a18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=806883404]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_uog6e")
+frame_progress = 0.542497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=534112155]
+position = Vector2(-1.1924868e-08, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_eq6ko")
+
+[node name="KillTimer" type="Timer" parent="." unique_id=1087125816]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

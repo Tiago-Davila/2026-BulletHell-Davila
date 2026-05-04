@@ -4,20 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://cfojnur7ajyua" path="res://textures/bala-enemigo-intermedio.png" id="2_xgkrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqm0"]
-size = Vector2(14.693098, 48.95613)
+size = Vector2(14.693098, 90.951004)
 
 [node name="bala" type="Area2D" unique_id=1479425759]
-rotation = 1.5707964
-scale = Vector2(-0.3458589, 0.415902)
+scale = Vector2(-0.18585934, 0.21590184)
 script = ExtResource("1_jgdxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446854140]
-position = Vector2(-0.1106185, 0.27743185)
-scale = Vector2(2.9955704, 1.3033991)
+position = Vector2(-1.44568, 0.27743185)
+rotation = 1.5707964
+scale = Vector2(3.0375674, 1.3033987)
 shape = SubResource("RectangleShape2D_vjqm0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=634775249]
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -2.3841858e-07)
+rotation = 1.5707964
+scale = Vector2(0.101401985, -0.18852714)
 texture = ExtResource("2_xgkrc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

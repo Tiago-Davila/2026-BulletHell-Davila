@@ -1,24 +1,23 @@
-[gd_scene format=4 uid="uid://b11qdptoy1pdj"]
+[gd_scene format=4 uid="uid://dryojy04bup6o"]
 
-[ext_resource type="Script" uid="uid://c0mw5hyd3kfar" path="res://scripts/escena-nivel.gd" id="1_fqn6j"]
-[ext_resource type="Texture2D" uid="uid://cmw3o6rx4m7gg" path="res://textures/Dark_Bricks.png" id="2_nits2"]
-[ext_resource type="PackedScene" uid="uid://cjguy44grs5fe" path="res://escenas/nivel-2.tscn" id="2_tih77"]
-[ext_resource type="Texture2D" uid="uid://cylqpc5q4erhe" path="res://textures/Dark_Bricks_Floor.png" id="3_tih77"]
-[ext_resource type="Script" uid="uid://vgdb1e6bex65" path="res://scripts/movimiento-player.gd" id="4_pfl1b"]
-[ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="5_5d2tm"]
-[ext_resource type="PackedScene" uid="uid://bxbvk6b3u4r2p" path="res://escenas/arma.tscn" id="6_mqo0p"]
-[ext_resource type="Texture2D" uid="uid://dxtpnipcpinar" path="res://textures/spritesv2.png" id="6_nits2"]
-[ext_resource type="Texture2D" uid="uid://cjhhsh1pv0ktt" path="res://textures/vida-corazon.png" id="7_h8uq4"]
-[ext_resource type="Texture2D" uid="uid://dcokc4y8ehvpe" path="res://textures/bala.png" id="8_wqedr"]
-[ext_resource type="PackedScene" uid="uid://d3ao8t3y8sfc8" path="res://escenas/enemigo-basico.tscn" id="9_n67tj"]
-[ext_resource type="PackedScene" uid="uid://c2dgicv7pdamg" path="res://escenas/enemigo-escopeta.tscn" id="10_eyciu"]
-[ext_resource type="PackedScene" uid="uid://cxv7r5untis85" path="res://escenas/municion.tscn" id="11_p476r"]
-[ext_resource type="PackedScene" uid="uid://d2t0otc4fysmd" path="res://escenas/corazon.tscn" id="12_ln8x5"]
+[ext_resource type="Script" uid="uid://c0mw5hyd3kfar" path="res://scripts/escena-nivel.gd" id="1_ppa5j"]
+[ext_resource type="PackedScene" uid="uid://cjguy44grs5fe" path="res://escenas/nivel-2.tscn" id="2_4n48d"]
+[ext_resource type="Texture2D" uid="uid://cmw3o6rx4m7gg" path="res://textures/Dark_Bricks.png" id="3_pusnp"]
+[ext_resource type="Texture2D" uid="uid://cylqpc5q4erhe" path="res://textures/Dark_Bricks_Floor.png" id="4_67gn2"]
+[ext_resource type="Script" uid="uid://vgdb1e6bex65" path="res://scripts/movimiento-player.gd" id="5_e2211"]
+[ext_resource type="Texture2D" uid="uid://b16u4kqeeceai" path="res://textures/sprites.png" id="6_60ndx"]
+[ext_resource type="Texture2D" uid="uid://dxtpnipcpinar" path="res://textures/spritesv2.png" id="7_424gc"]
+[ext_resource type="PackedScene" uid="uid://bxbvk6b3u4r2p" path="res://escenas/arma.tscn" id="8_2pcju"]
+[ext_resource type="Texture2D" uid="uid://cjhhsh1pv0ktt" path="res://textures/vida-corazon.png" id="9_yhp4k"]
+[ext_resource type="Texture2D" uid="uid://dcokc4y8ehvpe" path="res://textures/bala.png" id="10_o725l"]
+[ext_resource type="PackedScene" uid="uid://dom3qjve0aih1" path="res://escenas/boss-final.tscn" id="13_5wca3"]
+[ext_resource type="PackedScene" uid="uid://cxv7r5untis85" path="res://escenas/municion.tscn" id="13_tpu5d"]
+[ext_resource type="PackedScene" uid="uid://d2t0otc4fysmd" path="res://escenas/corazon.tscn" id="14_fo25l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ct6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eu843"]
-texture = ExtResource("2_nits2")
+texture = ExtResource("3_pusnp")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -29,7 +28,7 @@ texture = ExtResource("2_nits2")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hdvv"]
-texture = ExtResource("3_tih77")
+texture = ExtResource("4_67gn2")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -42,91 +41,91 @@ sources/0 = SubResource("TileSetAtlasSource_eu843")
 sources/1 = SubResource("TileSetAtlasSource_0hdvv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hdvv"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(3, 142, 30, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvokv"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(33, 142, 30, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tih77"]
-atlas = ExtResource("6_nits2")
+atlas = ExtResource("7_424gc")
 region = Rect2(39, 149, 30, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gun8t"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(63, 142, 30, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kr5r0"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(0, 286, 33, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvgvp"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(33, 286, 33, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33huv"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(66, 286, 33, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ct6m"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(99, 286, 33, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgseb"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(177, 384, 31, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnb17"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(208, 384, 31, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6un70"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(239, 384, 31, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxj54"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(3, 2, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_065du"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(34, 2, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkgpg"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(65, 2, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvhn3"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(96, 2, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88a8k"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(2, 51, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkb3l"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(35, 51, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpepp"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(68, 51, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5f2jg"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(101, 51, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bo1s"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(167, 51, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu843"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(211, 142, 37, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4nts"]
-atlas = ExtResource("5_5d2tm")
+atlas = ExtResource("6_60ndx")
 region = Rect2(174, 142, 37, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvgvp"]
@@ -243,8 +242,8 @@ size = Vector2(9.659088, 14.069641)
 size = Vector2(14.5, 35)
 
 [node name="Node2D" type="Node2D" unique_id=1646955856]
-script = ExtResource("1_fqn6j")
-nueva_escena = ExtResource("2_tih77")
+script = ExtResource("1_ppa5j")
+nueva_escena = ExtResource("2_4n48d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1358787512]
 position = Vector2(296, 195)
@@ -252,8 +251,8 @@ tile_map_data = PackedByteArray("AADv//X/AAABAAEAAADv//b/AQAAAAEAAADw//X/AAAAAAE
 tile_set = SubResource("TileSet_lvokv")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=786975165 groups=["player"]]
-position = Vector2(527, 285)
-script = ExtResource("4_pfl1b")
+position = Vector2(629, 352)
+script = ExtResource("5_e2211")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1376161827]
 position = Vector2(1, -2)
@@ -265,7 +264,7 @@ position = Vector2(-1.5, -1)
 scale = Vector2(1.76, 1.9901)
 shape = SubResource("RectangleShape2D_mvgvp")
 
-[node name="arma" parent="player" unique_id=746597162 instance=ExtResource("6_mqo0p")]
+[node name="arma" parent="player" unique_id=746597162 instance=ExtResource("8_2pcju")]
 position = Vector2(5, 10)
 rotation = 2.0943952
 scale = Vector2(0.5, 0.5)
@@ -277,171 +276,145 @@ light_mask = 2
 position = Vector2(14, 0)
 shape = SubResource("RectangleShape2D_kr5r0")
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1514477681]
-scale = Vector2(1.9894212, 1.3644222)
-zoom = Vector2(2, 2)
-
 [node name="GUI" type="CanvasLayer" parent="player" unique_id=424030951]
 
 [node name="corazon1" type="Sprite2D" parent="player/GUI" unique_id=92466892]
 position = Vector2(84.79178, 73.4075)
 scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_h8uq4")
+texture = ExtResource("9_yhp4k")
 
 [node name="corazon2" type="Sprite2D" parent="player/GUI" unique_id=165388257]
 position = Vector2(115.791794, 73.40752)
 scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_h8uq4")
+texture = ExtResource("9_yhp4k")
 
 [node name="corazon3" type="Sprite2D" parent="player/GUI" unique_id=175986189]
 position = Vector2(146.79176, 73.40752)
 scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_h8uq4")
+texture = ExtResource("9_yhp4k")
 
 [node name="corazon4" type="Sprite2D" parent="player/GUI" unique_id=1813847085]
 position = Vector2(179.79176, 73.40752)
 scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_h8uq4")
+texture = ExtResource("9_yhp4k")
 
 [node name="corazon5" type="Sprite2D" parent="player/GUI" unique_id=1589746886]
 position = Vector2(212.7918, 73.40752)
 scale = Vector2(0.13521354, 0.12891832)
-texture = ExtResource("7_h8uq4")
+texture = ExtResource("9_yhp4k")
 
 [node name="Bala" type="Sprite2D" parent="player/GUI" unique_id=812612253]
 position = Vector2(84, 107)
 rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
-texture = ExtResource("8_wqedr")
+texture = ExtResource("10_o725l")
 
 [node name="Bala2" type="Sprite2D" parent="player/GUI" unique_id=443526151]
 position = Vector2(113, 107)
 rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
-texture = ExtResource("8_wqedr")
+texture = ExtResource("10_o725l")
 
 [node name="Bala3" type="Sprite2D" parent="player/GUI" unique_id=1971081602]
 position = Vector2(142, 106.99999)
 rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
-texture = ExtResource("8_wqedr")
+texture = ExtResource("10_o725l")
 
 [node name="Bala4" type="Sprite2D" parent="player/GUI" unique_id=2110106303]
 position = Vector2(171, 106.99999)
 rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
-texture = ExtResource("8_wqedr")
+texture = ExtResource("10_o725l")
 
 [node name="Bala5" type="Sprite2D" parent="player/GUI" unique_id=1239275118]
 position = Vector2(198, 105.99999)
 rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
-texture = ExtResource("8_wqedr")
-
-[node name="ZonasDeSpawn" type="Node2D" parent="." unique_id=1040414313]
-position = Vector2(-98, -114)
-
-[node name="spawn1" type="Node2D" parent="ZonasDeSpawn" unique_id=2068970085]
-
-[node name="enemigo basico" parent="ZonasDeSpawn/spawn1" unique_id=511604442 instance=ExtResource("9_n67tj")]
-position = Vector2(-4, 56)
-
-[node name="enemigo basico2" parent="ZonasDeSpawn/spawn1" unique_id=1466807601 instance=ExtResource("9_n67tj")]
-position = Vector2(162, 41)
-
-[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn1" unique_id=457034630 instance=ExtResource("10_eyciu")]
-position = Vector2(632, 237)
-
-[node name="spawn2" type="Node2D" parent="ZonasDeSpawn" unique_id=1382648168]
-position = Vector2(412, 208)
-
-[node name="enemigo basico" parent="ZonasDeSpawn/spawn2" unique_id=34884965 instance=ExtResource("9_n67tj")]
-position = Vector2(-4, 56)
-
-[node name="enemigo basico2" parent="ZonasDeSpawn/spawn2" unique_id=1990894483 instance=ExtResource("9_n67tj")]
-position = Vector2(162, 41)
-
-[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn2" unique_id=1838039627 instance=ExtResource("10_eyciu")]
-position = Vector2(632, 237)
-
-[node name="spawn3" type="Node2D" parent="ZonasDeSpawn" unique_id=1557117773]
-position = Vector2(13, 339)
-
-[node name="enemigo basico" parent="ZonasDeSpawn/spawn3" unique_id=390891919 instance=ExtResource("9_n67tj")]
-position = Vector2(-4, 56)
-
-[node name="enemigo basico2" parent="ZonasDeSpawn/spawn3" unique_id=168233223 instance=ExtResource("9_n67tj")]
-position = Vector2(162, 41)
-
-[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn3" unique_id=1782980105 instance=ExtResource("10_eyciu")]
-position = Vector2(632, 237)
-
-[node name="spawn4" type="Node2D" parent="ZonasDeSpawn" unique_id=1872234973]
-position = Vector2(-388, 120)
-
-[node name="enemigo basico" parent="ZonasDeSpawn/spawn4" unique_id=213974281 instance=ExtResource("9_n67tj")]
-position = Vector2(-4, 56)
-
-[node name="enemigo basico2" parent="ZonasDeSpawn/spawn4" unique_id=1708018324 instance=ExtResource("9_n67tj")]
-position = Vector2(162, 41)
-
-[node name="EnemigoEscopeta" parent="ZonasDeSpawn/spawn4" unique_id=784033254 instance=ExtResource("10_eyciu")]
-position = Vector2(632, 237)
+texture = ExtResource("10_o725l")
 
 [node name="balas" type="Node2D" parent="." unique_id=445529248]
+position = Vector2(-127, -40)
 
-[node name="municionm" parent="balas" unique_id=1519985527 instance=ExtResource("11_p476r")]
+[node name="municionm" parent="balas" unique_id=509629747 instance=ExtResource("13_tpu5d")]
 position = Vector2(481, 431)
 scale = Vector2(0.5, 0.5)
 
-[node name="municionm2" parent="balas" unique_id=777975378 instance=ExtResource("11_p476r")]
+[node name="municionm2" parent="balas" unique_id=777975378 instance=ExtResource("13_tpu5d")]
 position = Vector2(544, 589)
 scale = Vector2(0.5, 0.5)
 
-[node name="municionm3" parent="balas" unique_id=446242867 instance=ExtResource("11_p476r")]
+[node name="municionm3" parent="balas" unique_id=446242867 instance=ExtResource("13_tpu5d")]
 position = Vector2(1028, 545)
 scale = Vector2(0.5, 0.5)
 
-[node name="municionm4" parent="balas" unique_id=1774656284 instance=ExtResource("11_p476r")]
+[node name="municionm4" parent="balas" unique_id=1774656284 instance=ExtResource("13_tpu5d")]
 position = Vector2(899, 191)
 scale = Vector2(0.5, 0.5)
 
-[node name="municionm5" parent="balas" unique_id=1675343262 instance=ExtResource("11_p476r")]
+[node name="municionm5" parent="balas" unique_id=1675343262 instance=ExtResource("13_tpu5d")]
 position = Vector2(203, 123)
+scale = Vector2(0.5, 0.5)
+
+[node name="municionm6" parent="balas" unique_id=1519985527 instance=ExtResource("13_tpu5d")]
+position = Vector2(222, 339)
+scale = Vector2(0.5, 0.5)
+
+[node name="municionm7" parent="balas" unique_id=2003280963 instance=ExtResource("13_tpu5d")]
+position = Vector2(536, 117)
+scale = Vector2(0.5, 0.5)
+
+[node name="municionm8" parent="balas" unique_id=1790187556 instance=ExtResource("13_tpu5d")]
+position = Vector2(1146, 262)
+scale = Vector2(0.5, 0.5)
+
+[node name="municionm9" parent="balas" unique_id=319848356 instance=ExtResource("13_tpu5d")]
+position = Vector2(1144, 444)
+scale = Vector2(0.5, 0.5)
+
+[node name="municionm10" parent="balas" unique_id=877730541 instance=ExtResource("13_tpu5d")]
+position = Vector2(890, 388)
 scale = Vector2(0.5, 0.5)
 
 [node name="corazones" type="Node2D" parent="." unique_id=600694855]
 
-[node name="Node2D" parent="corazones" unique_id=735186907 instance=ExtResource("12_ln8x5")]
-position = Vector2(327, 113)
+[node name="Node2D" parent="corazones" unique_id=735186907 instance=ExtResource("14_fo25l")]
+position = Vector2(144, 122)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D2" parent="corazones" unique_id=1485499163 instance=ExtResource("12_ln8x5")]
+[node name="Node2D2" parent="corazones" unique_id=1485499163 instance=ExtResource("14_fo25l")]
 position = Vector2(105, 567)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D3" parent="corazones" unique_id=532095440 instance=ExtResource("12_ln8x5")]
+[node name="Node2D3" parent="corazones" unique_id=532095440 instance=ExtResource("14_fo25l")]
 position = Vector2(807, 555)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D4" parent="corazones" unique_id=1284296185 instance=ExtResource("12_ln8x5")]
-position = Vector2(748, 85)
+[node name="Node2D4" parent="corazones" unique_id=1284296185 instance=ExtResource("14_fo25l")]
+position = Vector2(906.00006, 94.00001)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D5" parent="corazones" unique_id=901749585 instance=ExtResource("12_ln8x5")]
-position = Vector2(684, 341)
+[node name="Node2D5" parent="corazones" unique_id=901749585 instance=ExtResource("14_fo25l")]
+position = Vector2(895, 296.00003)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D6" parent="corazones" unique_id=958748480 instance=ExtResource("12_ln8x5")]
-position = Vector2(316, 421.00003)
+[node name="Node2D6" parent="corazones" unique_id=958748480 instance=ExtResource("14_fo25l")]
+position = Vector2(164, 377)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D8" parent="corazones" unique_id=777861206 instance=ExtResource("12_ln8x5")]
-position = Vector2(465, 294)
+[node name="Node2D8" parent="corazones" unique_id=777861206 instance=ExtResource("14_fo25l")]
+position = Vector2(219, 259)
 scale = Vector2(0.15276587, 0.16000003)
 
-[node name="Node2D7" parent="corazones" unique_id=1220148804 instance=ExtResource("12_ln8x5")]
+[node name="Node2D7" parent="corazones" unique_id=1220148804 instance=ExtResource("14_fo25l")]
 position = Vector2(788, 254.00003)
 scale = Vector2(0.15276587, 0.16000003)
+
+[node name="Node2D9" parent="corazones" unique_id=1711491552 instance=ExtResource("14_fo25l")]
+position = Vector2(594, 532)
+scale = Vector2(0.15276587, 0.16000003)
+
+[node name="BossFinal" parent="." unique_id=429898445 instance=ExtResource("13_5wca3")]
+position = Vector2(-53, 17)
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]

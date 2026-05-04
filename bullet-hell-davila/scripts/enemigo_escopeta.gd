@@ -31,5 +31,6 @@ func disparar() -> void:
 
 func tomar_daño(daño: int) -> void:
 	vida -= daño
-	get_tree().current_scene.restar_enemigo()
-	if vida <= 0: queue_free()
+	if vida <= 0:
+		queue_free()
+		get_tree().current_scene.restar_enemigo()

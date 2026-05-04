@@ -80,7 +80,8 @@ script = ExtResource("1_gvpfm")
 shape = SubResource("CircleShape2D_osiu2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=629698755]
-position = Vector2(7.6293945e-06, -4)
+position = Vector2(0, 0.4)
+rotation = 6.2831855
 scale = Vector2(0.8038659, 0.7282123)
 sprite_frames = SubResource("SpriteFrames_3atcs")
 animation = &"bala"

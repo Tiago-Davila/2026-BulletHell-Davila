@@ -11,6 +11,7 @@ func _ready() -> void:
 	sprite.play("bomba")
 
 func _process(delta: float) -> void:
+	
 	if explotando: 
 		return
 		
