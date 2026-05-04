@@ -1,22 +1,29 @@
 [gd_scene format=3 uid="uid://cbmafl30ifks7"]
 
 [ext_resource type="Script" uid="uid://bmjs4sqalky8" path="res://scripts/bala_enemigo_basico.gd" id="1_u3yiu"]
-[ext_resource type="Texture2D" uid="uid://43r7rsiu0jj0" path="res://textures/Player Bullets/P1_Hyper_Bullet.png" id="2_35fih"]
+[ext_resource type="Texture2D" uid="uid://il4lr4wv0k40" path="res://textures/Player Bullets/P1 Bullet_Yellow.png" id="2_35fih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l38wg"]
 size = Vector2(6, 13)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l38wg"]
+atlas = ExtResource("2_35fih")
+region = Rect2(0, 0, 6, 17)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hohl"]
 atlas = ExtResource("2_35fih")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(6, 0, 6, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8hem"]
 atlas = ExtResource("2_35fih")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(12, 0, 6, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dyf01"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l38wg")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8hohl")
 }, {
@@ -37,9 +44,10 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_l38wg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2103550894]
-position = Vector2(-9.536743e-07, 9.536743e-07)
+position = Vector2(-6.6381904e-07, -0.494936)
 rotation = 1.5707964
-scale = Vector2(0.28125, 0.40625)
+scale = Vector2(0.9324832, 0.75561744)
 sprite_frames = SubResource("SpriteFrames_dyf01")
+frame_progress = 0.62352854
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

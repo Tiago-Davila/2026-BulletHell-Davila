@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://6yv3snupxmj0"]
+
+[ext_resource type="Texture2D" uid="uid://37embsl0id5g" path="res://textures/escenaPrincipal.jpg" id="1_hc1mo"]
+[ext_resource type="Texture2D" uid="uid://dbw0rtqj3srq7" path="res://textures/hollow-titulo.png" id="2_wjujd"]
+[ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="3_lelck"]
+[ext_resource type="Script" uid="uid://bkgxduxvhu3s6" path="res://scripts/iniciarJuego.gd" id="4_tpwdj"]
+[ext_resource type="Texture2D" uid="uid://dfk6l3u3wv3cx" path="res://textures/imagen-gamewin.png" id="5_wjujd"]
+
+[node name="Control" type="Control" unique_id=646823875]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=182153390]
+position = Vector2(616.5, 355)
+scale = Vector2(0.9664062, 1)
+texture = ExtResource("1_hc1mo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=369445477]
+
+[node name="HollowTitulo" type="Sprite2D" parent="CanvasLayer" unique_id=948146933]
+position = Vector2(741, 143)
+texture = ExtResource("2_wjujd")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=557029339]
+offset_left = 594.0
+offset_top = 253.0
+offset_right = 887.0
+offset_bottom = 316.0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+theme_override_fonts/font = ExtResource("3_lelck")
+theme_override_font_sizes/font_size = 40
+text = "Restart Game"
+script = ExtResource("4_tpwdj")
+escena = "res://escenas/menu-inicio.tscn"
+
+[node name="ImagenGamewin" type="Sprite2D" parent="." unique_id=1462485600]
+position = Vector2(731, 385)
+texture = ExtResource("5_wjujd")

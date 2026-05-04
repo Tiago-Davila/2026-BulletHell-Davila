@@ -12,6 +12,7 @@ var dash_cooldown_timer: float = 0.0
 var vida: int = 5
 var vida_maxima: int = 5
 var municion: int = 0
+var escena_muerte = preload("res://escenas/menu-muerte.tscn")
 
 
 var atacando: bool = false
@@ -89,7 +90,9 @@ func _input (event:InputEvent) -> void:
 func tomar_daño(daño: int) -> void:
 	vida -= daño
 	actualizar_salud()
-	if vida <= 0:queue_free()
+	if vida <= 0:
+		queue_free()
+		get_tree().change_scene_to_packed(escena_muerte)
 	
 	
 func actualizar_salud() -> void:

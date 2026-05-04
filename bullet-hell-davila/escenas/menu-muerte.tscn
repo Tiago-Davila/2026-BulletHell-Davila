@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dbry84a8nhn1a"]
+
+[ext_resource type="Texture2D" uid="uid://deynutg62cxhs" path="res://textures/imagen-gameover.png" id="1_n0qfg"]
+[ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="2_l0v3t"]
+[ext_resource type="Script" uid="uid://bkgxduxvhu3s6" path="res://scripts/iniciarJuego.gd" id="3_ind68"]
+
+[node name="Control" type="Control" unique_id=646823875]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=369445477]
+
+[node name="quitgamebutton" type="TextureButton" parent="CanvasLayer" unique_id=44549588]
+offset_left = 620.0
+offset_top = 409.0
+offset_right = 858.0
+offset_bottom = 467.0
+
+[node name="ImagenGameover" type="Sprite2D" parent="." unique_id=720485192]
+position = Vector2(467, 306.5)
+texture = ExtResource("1_n0qfg")
+
+[node name="Panel" type="Panel" parent="." unique_id=1138208401]
+modulate = Color(1, 1, 1, 0.5647059)
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 702.0
+
+[node name="Button" type="Button" parent="." unique_id=1569934058]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 327.5
+offset_right = 593.0
+offset_bottom = 390.5
+scale = Vector2(1.0702381, 0.7542857)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+theme_override_fonts/font = ExtResource("2_l0v3t")
+theme_override_font_sizes/font_size = 22
+text = "Restart Game"
+script = ExtResource("3_ind68")

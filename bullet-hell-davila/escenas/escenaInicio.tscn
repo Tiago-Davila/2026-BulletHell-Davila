@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dolh5nsenejdd"]
+
+[ext_resource type="Texture2D" uid="uid://37embsl0id5g" path="res://textures/escenaPrincipal.jpg" id="1_xogiu"]
+
+[node name="EscenaInicio" type="Node2D" unique_id=879133266]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1317555275]
+position = Vector2(616.5, 355)
+scale = Vector2(0.9664062, 1)
+texture = ExtResource("1_xogiu")
