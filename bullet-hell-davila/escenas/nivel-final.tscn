@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dryojy04bup6o"]
 
 [ext_resource type="Script" uid="uid://c0mw5hyd3kfar" path="res://scripts/escena-nivel.gd" id="1_ppa5j"]
-[ext_resource type="PackedScene" uid="uid://cjguy44grs5fe" path="res://escenas/nivel-2.tscn" id="2_4n48d"]
+[ext_resource type="PackedScene" uid="uid://c7c1qr62l1k4i" path="res://escenas/menu-victoria.tscn" id="2_pusnp"]
 [ext_resource type="Texture2D" uid="uid://cmw3o6rx4m7gg" path="res://textures/Dark_Bricks.png" id="3_pusnp"]
 [ext_resource type="Texture2D" uid="uid://cylqpc5q4erhe" path="res://textures/Dark_Bricks_Floor.png" id="4_67gn2"]
 [ext_resource type="Script" uid="uid://vgdb1e6bex65" path="res://scripts/movimiento-player.gd" id="5_e2211"]
@@ -10,9 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://bxbvk6b3u4r2p" path="res://escenas/arma.tscn" id="8_2pcju"]
 [ext_resource type="Texture2D" uid="uid://cjhhsh1pv0ktt" path="res://textures/vida-corazon.png" id="9_yhp4k"]
 [ext_resource type="Texture2D" uid="uid://dcokc4y8ehvpe" path="res://textures/bala.png" id="10_o725l"]
+[ext_resource type="Texture2D" uid="uid://deynutg62cxhs" path="res://textures/imagen-gameover.png" id="11_60ndx"]
+[ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="12_424gc"]
+[ext_resource type="Script" uid="uid://d0f8l7pq002kq" path="res://scripts/button-muerte.gd" id="13_2pcju"]
 [ext_resource type="PackedScene" uid="uid://dom3qjve0aih1" path="res://escenas/boss-final.tscn" id="13_5wca3"]
+[ext_resource type="Script" uid="uid://clys5lf2uhgte" path="res://scripts/generador.gd" id="13_ppa5j"]
 [ext_resource type="PackedScene" uid="uid://cxv7r5untis85" path="res://escenas/municion.tscn" id="13_tpu5d"]
 [ext_resource type="PackedScene" uid="uid://d2t0otc4fysmd" path="res://escenas/corazon.tscn" id="14_fo25l"]
+[ext_resource type="PackedScene" uid="uid://dlykhdvrtj41g" path="res://escenas/enemigos-basicos.tscn" id="15_4n48d"]
+[ext_resource type="PackedScene" uid="uid://djw3umc8s167a" path="res://escenas/enemigos-intermedios.tscn" id="16_pusnp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ct6m"]
 
@@ -243,7 +249,7 @@ size = Vector2(14.5, 35)
 
 [node name="Node2D" type="Node2D" unique_id=1646955856]
 script = ExtResource("1_ppa5j")
-nueva_escena = ExtResource("2_4n48d")
+escena_siguiente_nivel = ExtResource("2_pusnp")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1358787512]
 position = Vector2(296, 195)
@@ -333,48 +339,30 @@ rotation = -1.5707964
 scale = Vector2(0.45957667, 0.46586302)
 texture = ExtResource("10_o725l")
 
-[node name="balas" type="Node2D" parent="." unique_id=445529248]
-position = Vector2(-127, -40)
+[node name="CanvasLayer" type="CanvasLayer" parent="player" unique_id=1064172899]
+process_mode = 3
+visible = false
 
-[node name="municionm" parent="balas" unique_id=509629747 instance=ExtResource("13_tpu5d")]
-position = Vector2(481, 431)
-scale = Vector2(0.5, 0.5)
+[node name="ImagenGameover" type="Sprite2D" parent="player/CanvasLayer" unique_id=424538798]
+position = Vector2(568, 298)
+texture = ExtResource("11_60ndx")
 
-[node name="municionm2" parent="balas" unique_id=777975378 instance=ExtResource("13_tpu5d")]
-position = Vector2(544, 589)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm3" parent="balas" unique_id=446242867 instance=ExtResource("13_tpu5d")]
-position = Vector2(1028, 545)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm4" parent="balas" unique_id=1774656284 instance=ExtResource("13_tpu5d")]
-position = Vector2(899, 191)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm5" parent="balas" unique_id=1675343262 instance=ExtResource("13_tpu5d")]
-position = Vector2(203, 123)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm6" parent="balas" unique_id=1519985527 instance=ExtResource("13_tpu5d")]
-position = Vector2(222, 339)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm7" parent="balas" unique_id=2003280963 instance=ExtResource("13_tpu5d")]
-position = Vector2(536, 117)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm8" parent="balas" unique_id=1790187556 instance=ExtResource("13_tpu5d")]
-position = Vector2(1146, 262)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm9" parent="balas" unique_id=319848356 instance=ExtResource("13_tpu5d")]
-position = Vector2(1144, 444)
-scale = Vector2(0.5, 0.5)
-
-[node name="municionm10" parent="balas" unique_id=877730541 instance=ExtResource("13_tpu5d")]
-position = Vector2(890, 388)
-scale = Vector2(0.5, 0.5)
+[node name="Button" type="Button" parent="player/CanvasLayer" unique_id=208774930]
+offset_left = 436.0
+offset_top = 335.0
+offset_right = 682.0
+offset_bottom = 398.0
+scale = Vector2(1.0702381, 0.7542857)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+theme_override_fonts/font = ExtResource("12_424gc")
+theme_override_font_sizes/font_size = 22
+text = "Restart Game"
+script = ExtResource("13_2pcju")
 
 [node name="corazones" type="Node2D" parent="." unique_id=600694855]
 
@@ -414,7 +402,109 @@ scale = Vector2(0.15276587, 0.16000003)
 position = Vector2(594, 532)
 scale = Vector2(0.15276587, 0.16000003)
 
+[node name="GeneradorMunicion" type="Node2D" parent="." unique_id=623534654]
+script = ExtResource("13_ppa5j")
+escena = ExtResource("13_tpu5d")
+
+[node name="Timer" type="Timer" parent="GeneradorMunicion" unique_id=766050408]
+wait_time = 7.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="GeneradorMunicion" unique_id=424895717]
+position = Vector2(120, 179)
+
+[node name="Marker2D2" type="Marker2D" parent="GeneradorMunicion" unique_id=595730761]
+position = Vector2(154, 468)
+
+[node name="Marker2D3" type="Marker2D" parent="GeneradorMunicion" unique_id=852742176]
+position = Vector2(464, 525)
+
+[node name="Marker2D4" type="Marker2D" parent="GeneradorMunicion" unique_id=975525382]
+position = Vector2(786, 491)
+
+[node name="Marker2D5" type="Marker2D" parent="GeneradorMunicion" unique_id=963980638]
+position = Vector2(963, 358)
+
+[node name="Marker2D6" type="Marker2D" parent="GeneradorMunicion" unique_id=1151017169]
+position = Vector2(936, 211)
+
+[node name="Marker2D7" type="Marker2D" parent="GeneradorMunicion" unique_id=1912056740]
+position = Vector2(794, 99)
+
+[node name="Marker2D8" type="Marker2D" parent="GeneradorMunicion" unique_id=2130039541]
+position = Vector2(546, 78)
+
+[node name="Marker2D9" type="Marker2D" parent="GeneradorMunicion" unique_id=814365848]
+position = Vector2(378, 186)
+
+[node name="Marker2D10" type="Marker2D" parent="GeneradorMunicion" unique_id=1763919436]
+position = Vector2(318, 376)
+
+[node name="Marker2D11" type="Marker2D" parent="GeneradorMunicion" unique_id=1854196195]
+position = Vector2(302, 550)
+
+[node name="Marker2D12" type="Marker2D" parent="GeneradorMunicion" unique_id=1206443435]
+position = Vector2(644, 554)
+
+[node name="Marker2D13" type="Marker2D" parent="GeneradorMunicion" unique_id=2134011752]
+position = Vector2(655, 458)
+
+[node name="Marker2D14" type="Marker2D" parent="GeneradorMunicion" unique_id=324820815]
+position = Vector2(724, 300)
+
+[node name="Marker2D15" type="Marker2D" parent="GeneradorMunicion" unique_id=1096005936]
+position = Vector2(692, 180)
+
+[node name="Marker2D16" type="Marker2D" parent="GeneradorMunicion" unique_id=886526817]
+position = Vector2(974, 501)
+
+[node name="Marker2D17" type="Marker2D" parent="GeneradorMunicion" unique_id=372743528]
+position = Vector2(939, 574)
+
+[node name="Marker2D18" type="Marker2D" parent="GeneradorMunicion" unique_id=1918801596]
+position = Vector2(1072, 101)
+
+[node name="Marker2D19" type="Marker2D" parent="GeneradorMunicion" unique_id=1130459548]
+position = Vector2(328, 69)
+
+[node name="Marker2D20" type="Marker2D" parent="GeneradorMunicion" unique_id=703733549]
+position = Vector2(76, 71)
+
+[node name="Marker2D21" type="Marker2D" parent="GeneradorMunicion" unique_id=1297949231]
+position = Vector2(74, 300)
+
+[node name="Marker2D22" type="Marker2D" parent="GeneradorMunicion" unique_id=1481979686]
+position = Vector2(150, 599)
+
+[node name="GeneradorEnemigos-basicos" type="Node2D" parent="." unique_id=1728725495]
+script = ExtResource("13_ppa5j")
+escena = ExtResource("15_4n48d")
+
+[node name="Timer" type="Timer" parent="GeneradorEnemigos-basicos" unique_id=1062121643]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="GeneradorEnemigos-basicos" unique_id=762410557]
+position = Vector2(197, 190)
+
+[node name="GeneradorEnemigos-intermedios" type="Node2D" parent="." unique_id=1843026048]
+script = ExtResource("13_ppa5j")
+escena = ExtResource("16_pusnp")
+
+[node name="Timer" type="Timer" parent="GeneradorEnemigos-intermedios" unique_id=1376179048]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="GeneradorEnemigos-intermedios" unique_id=1193658090]
+position = Vector2(902, 324)
+
 [node name="BossFinal" parent="." unique_id=429898445 instance=ExtResource("13_5wca3")]
-position = Vector2(-53, 17)
+position = Vector2(-42, 6)
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="player/CanvasLayer/Button" to="player/CanvasLayer/Button" method="_on_pressed"]
+[connection signal="timeout" from="GeneradorMunicion/Timer" to="GeneradorMunicion" method="_on_timer_timeout"]
+[connection signal="timeout" from="GeneradorEnemigos-basicos/Timer" to="GeneradorEnemigos-basicos" method="_on_timer_timeout"]
+[connection signal="timeout" from="GeneradorEnemigos-intermedios/Timer" to="GeneradorEnemigos-intermedios" method="_on_timer_timeout"]

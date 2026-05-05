@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BulletHell-Davila"
-run/main_scene="uid://b11qdptoy1pdj"
+run/main_scene="uid://mu0il780x4s6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

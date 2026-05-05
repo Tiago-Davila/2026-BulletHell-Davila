@@ -11,7 +11,8 @@ var vida: int = 30
 var timer: float = 0.0
 
 @onready var notificador = $VisibleOnScreenNotifier2D
-
+func _ready() -> void:
+	get_tree().current_scene.sumar_enemigo()
 func _physics_process(delta: float) -> void:
 	timer += delta
 	tiempo_movimiento -= delta

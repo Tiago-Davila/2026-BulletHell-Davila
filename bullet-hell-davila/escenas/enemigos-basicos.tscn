@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dlykhdvrtj41g"]
+
+[ext_resource type="PackedScene" uid="uid://d3ao8t3y8sfc8" path="res://escenas/enemigo-basico.tscn" id="1_ev6q6"]
+
+[node name="enemigos" type="Node2D" unique_id=260799189]
+
+[node name="Node2D" parent="." unique_id=511604442 instance=ExtResource("1_ev6q6")]
+position = Vector2(-481, -171)
+
+[node name="Node2D2" parent="." unique_id=588745097 instance=ExtResource("1_ev6q6")]
+position = Vector2(-491, -309)
+
+[node name="Node2D3" parent="." unique_id=970654049 instance=ExtResource("1_ev6q6")]
+position = Vector2(-653, -287)

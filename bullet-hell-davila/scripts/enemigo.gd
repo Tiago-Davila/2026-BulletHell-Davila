@@ -7,6 +7,8 @@ var vida := 30
 var timer := 0.0
 @export var cooldown_enemigo : float= 2.0
 @onready var notificador = $VisibleOnScreenNotifier2D
+func _ready() -> void:
+	get_tree().current_scene.sumar_enemigo()
 func _process(delta: float) -> void:
 	timer += delta
 	if timer >= cooldown_enemigo and bala_enemigo:

@@ -20,6 +20,7 @@ var atacando: bool = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var corazones = [$GUI/corazon1, $GUI/corazon2, $GUI/corazon3, $GUI/corazon4, $GUI/corazon5]
 @onready var balas = [$GUI/Bala, $GUI/Bala2, $GUI/Bala3, $GUI/Bala4, $GUI/Bala5]
+@onready var boton_reinicio = $CanvasLayer
 
 func _ready() -> void:
 	actualizar_municion()
@@ -91,8 +92,9 @@ func tomar_daño(daño: int) -> void:
 	vida -= daño
 	actualizar_salud()
 	if vida <= 0:
-		queue_free()
-		get_tree().change_scene_to_packed(escena_muerte)
+		boton_reinicio.visible = true
+		$AnimatedSprite2D.visible = false
+		get_tree().paused = true
 	
 	
 func actualizar_salud() -> void:

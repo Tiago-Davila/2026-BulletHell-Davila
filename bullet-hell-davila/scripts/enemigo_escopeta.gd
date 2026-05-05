@@ -9,7 +9,8 @@ var timer := 0.0
 
 @onready var canones = $canones 
 @onready var notificador = $VisibleOnScreenNotifier2D
-
+func _ready() -> void:
+	get_tree().current_scene.sumar_enemigo()
 func _process(delta: float) -> void:
 	timer += delta
 	if timer >= tiempo_disparo and bala_enemigo:

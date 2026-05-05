@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://h6vsbaj5gf3w" path="res://textures/boton-izq.png" id="12_wqedr"]
 [ext_resource type="Texture2D" uid="uid://bdujs6h42ccno" path="res://textures/shift-teclas.png" id="13_n67tj"]
 [ext_resource type="Texture2D" uid="uid://dsk0qu60syau6" path="res://textures/wasd.png" id="14_eyciu"]
+[ext_resource type="Texture2D" uid="uid://deynutg62cxhs" path="res://textures/imagen-gameover.png" id="15_n67tj"]
 [ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="15_wqedr"]
+[ext_resource type="Script" uid="uid://d0f8l7pq002kq" path="res://scripts/button-muerte.gd" id="16_eyciu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ct6m"]
 
@@ -247,9 +249,9 @@ size = Vector2(9.659088, 14.069641)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr5r0"]
 size = Vector2(14.5, 35)
 
-[node name="Node2D" type="Node2D" unique_id=1646955856]
+[node name="Node2D2" type="Node2D" unique_id=1646955856]
 script = ExtResource("1_fqn6j")
-nueva_escena = ExtResource("2_tih77")
+escena_siguiente_nivel = ExtResource("2_tih77")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1358787512]
 position = Vector2(296, 195)
@@ -395,6 +397,32 @@ offset_bottom = 538.0
 theme_override_fonts/normal_font = ExtResource("15_wqedr")
 text = "Moverse"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="player" unique_id=1650958037]
+process_mode = 3
+visible = false
+
+[node name="Button" type="Button" parent="player/CanvasLayer" unique_id=313415759]
+offset_left = 436.0
+offset_top = 335.0
+offset_right = 682.0
+offset_bottom = 398.0
+scale = Vector2(1.0702381, 0.7542857)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+theme_override_fonts/font = ExtResource("15_wqedr")
+theme_override_font_sizes/font_size = 22
+text = "Restart Game"
+script = ExtResource("16_eyciu")
+
+[node name="ImagenGameover" type="Sprite2D" parent="player/CanvasLayer" unique_id=1795371898]
+position = Vector2(556, 321)
+scale = Vector2(0.86093754, 0.95299447)
+texture = ExtResource("15_n67tj")
+
 [node name="ZonasDeSpawn" type="Node2D" parent="." unique_id=1040414313]
 position = Vector2(-98, -114)
 
@@ -449,23 +477,18 @@ position = Vector2(632, 237)
 
 [node name="municionm" parent="balas" unique_id=1519985527 instance=ExtResource("11_p476r")]
 position = Vector2(481, 431)
-scale = Vector2(0.5, 0.5)
 
 [node name="municionm2" parent="balas" unique_id=777975378 instance=ExtResource("11_p476r")]
 position = Vector2(544, 589)
-scale = Vector2(0.5, 0.5)
 
 [node name="municionm3" parent="balas" unique_id=446242867 instance=ExtResource("11_p476r")]
 position = Vector2(1028, 545)
-scale = Vector2(0.5, 0.5)
 
 [node name="municionm4" parent="balas" unique_id=1774656284 instance=ExtResource("11_p476r")]
 position = Vector2(899, 191)
-scale = Vector2(0.5, 0.5)
 
 [node name="municionm5" parent="balas" unique_id=1675343262 instance=ExtResource("11_p476r")]
 position = Vector2(203, 123)
-scale = Vector2(0.5, 0.5)
 
 [node name="corazones" type="Node2D" parent="." unique_id=600694855]
 
@@ -502,3 +525,4 @@ position = Vector2(788, 254.00003)
 scale = Vector2(0.15276587, 0.16000003)
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="player/CanvasLayer/Button" to="player/CanvasLayer/Button" method="_on_pressed"]

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://basoc2raqbro1" path="res://textures/moss_mother_pixel.png" id="4_w2qax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0434"]
-size = Vector2(145, 220)
+size = Vector2(145, 197)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xa67"]
 atlas = ExtResource("2_iamtf")
@@ -84,7 +84,7 @@ script = ExtResource("1_uxgnx")
 bullet_scene = ExtResource("2_8ecx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2014600519]
-position = Vector2(-0.5, -12)
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_c0434")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2143620703]

@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://cf44rrnq4xk2x"]
+[gd_scene format=3 uid="uid://mu0il780x4s6"]
 
 [ext_resource type="Texture2D" uid="uid://37embsl0id5g" path="res://textures/escenaPrincipal.jpg" id="1_svvrv"]
 [ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="3_6d4ne"]
 [ext_resource type="Texture2D" uid="uid://dbw0rtqj3srq7" path="res://textures/hollow-titulo.png" id="3_i2nyy"]
 [ext_resource type="Script" uid="uid://bkgxduxvhu3s6" path="res://scripts/iniciarJuego.gd" id="4_jraan"]
+[ext_resource type="PackedScene" uid="uid://b11qdptoy1pdj" path="res://escenas/nivel-1.tscn" id="5_jraan"]
 
 [node name="Control" type="Control" unique_id=646823875]
 layout_mode = 3
@@ -25,10 +26,10 @@ position = Vector2(741, 143)
 texture = ExtResource("3_i2nyy")
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=557029339]
-offset_left = 635.0
-offset_top = 257.0
-offset_right = 881.0
-offset_bottom = 320.0
+offset_left = 636.0
+offset_top = 256.0
+offset_right = 882.0
+offset_bottom = 319.0
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
@@ -39,4 +40,6 @@ theme_override_fonts/font = ExtResource("3_6d4ne")
 theme_override_font_sizes/font_size = 40
 text = "Start Game"
 script = ExtResource("4_jraan")
-escena = "res://escenas/nivel-1.tscn"
+escena = ExtResource("5_jraan")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

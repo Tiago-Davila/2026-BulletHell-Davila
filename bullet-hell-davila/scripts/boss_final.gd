@@ -19,9 +19,10 @@ var duracion_patron: float = 4.0
 var tiempo_entre_ataques: float = 0.2
  
 var estado_actual: String = "IDLE"
-var vida: int = 1000
+var vida: int = 700
 
 func _ready() -> void:
+	get_tree().current_scene.sumar_enemigo()
 	sprite.play("idle")
 	estado_actual = "IDLE"
 	
@@ -84,5 +85,7 @@ func _on_shoot_timer_timeout() -> void:
 
 func tomar_daño(daño: int) -> void:
 	vida -= daño
+	print("Vida del boss", vida)
 	if vida <= 0:
 		queue_free()
+		get_tree().current_scene.restar_enemigo()

@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://deynutg62cxhs" path="res://textures/imagen-gameover.png" id="1_n0qfg"]
 [ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="2_l0v3t"]
-[ext_resource type="Script" uid="uid://bkgxduxvhu3s6" path="res://scripts/iniciarJuego.gd" id="3_ind68"]
+[ext_resource type="Script" uid="uid://d0f8l7pq002kq" path="res://scripts/button-muerte.gd" id="4_ind68"]
+[ext_resource type="Texture2D" uid="uid://b33spg6w5u3ot" path="res://textures/fondo-muerte.jpg" id="4_xc10j"]
 
 [node name="Control" type="Control" unique_id=646823875]
 layout_mode = 3
@@ -20,22 +21,15 @@ offset_top = 409.0
 offset_right = 858.0
 offset_bottom = 467.0
 
-[node name="ImagenGameover" type="Sprite2D" parent="." unique_id=720485192]
-position = Vector2(467, 306.5)
+[node name="ImagenGameover" type="Sprite2D" parent="CanvasLayer" unique_id=720485192]
+position = Vector2(568, 298)
 texture = ExtResource("1_n0qfg")
 
-[node name="Panel" type="Panel" parent="." unique_id=1138208401]
-modulate = Color(1, 1, 1, 0.5647059)
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 702.0
-
-[node name="Button" type="Button" parent="." unique_id=1569934058]
-layout_mode = 0
-offset_left = 347.0
-offset_top = 327.5
-offset_right = 593.0
-offset_bottom = 390.5
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1569934058]
+offset_left = 436.0
+offset_top = 335.0
+offset_right = 682.0
+offset_bottom = 398.0
 scale = Vector2(1.0702381, 0.7542857)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
@@ -46,4 +40,11 @@ theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
 theme_override_fonts/font = ExtResource("2_l0v3t")
 theme_override_font_sizes/font_size = 22
 text = "Restart Game"
-script = ExtResource("3_ind68")
+script = ExtResource("4_ind68")
+
+[node name="FondoMuerte" type="Sprite2D" parent="." unique_id=761500843]
+position = Vector2(577, 351.25)
+scale = Vector2(1.5567567, 1.6903615)
+texture = ExtResource("4_xc10j")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

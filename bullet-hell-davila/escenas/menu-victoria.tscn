@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://6yv3snupxmj0"]
+[gd_scene format=3 uid="uid://c7c1qr62l1k4i"]
 
 [ext_resource type="Texture2D" uid="uid://37embsl0id5g" path="res://textures/escenaPrincipal.jpg" id="1_hc1mo"]
 [ext_resource type="Texture2D" uid="uid://dbw0rtqj3srq7" path="res://textures/hollow-titulo.png" id="2_wjujd"]
 [ext_resource type="FontFile" uid="uid://dnid21nc8keng" path="res://fuentes/Cinzel-VariableFont_wght.ttf" id="3_lelck"]
 [ext_resource type="Script" uid="uid://bkgxduxvhu3s6" path="res://scripts/iniciarJuego.gd" id="4_tpwdj"]
+[ext_resource type="PackedScene" uid="uid://mu0il780x4s6" path="res://escenas/menu-inicio.tscn" id="5_lelck"]
 [ext_resource type="Texture2D" uid="uid://dfk6l3u3wv3cx" path="res://textures/imagen-gamewin.png" id="5_wjujd"]
 
 [node name="Control" type="Control" unique_id=646823875]
@@ -40,8 +41,10 @@ theme_override_fonts/font = ExtResource("3_lelck")
 theme_override_font_sizes/font_size = 40
 text = "Restart Game"
 script = ExtResource("4_tpwdj")
-escena = "res://escenas/menu-inicio.tscn"
+escena = ExtResource("5_lelck")
 
 [node name="ImagenGamewin" type="Sprite2D" parent="." unique_id=1462485600]
 position = Vector2(731, 385)
 texture = ExtResource("5_wjujd")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
